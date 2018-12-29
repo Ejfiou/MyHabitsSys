@@ -1,0 +1,24 @@
+﻿@model Exception
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>出错啦！</title>
+    <link href="~/Content/error.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="errmsg">
+        <p class="error-tip">哎呀，出错啦！</p>
+        <p>
+            错误信息：@Html.Raw(Model.Message)
+        </p>
+        <div>
+            <a href="javascript:window.location.reload()">重试</a>
+            <a href="/">返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
