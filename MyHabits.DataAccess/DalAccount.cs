@@ -9,7 +9,7 @@ namespace MyHabits.DataAccess
 {
     public class DalAccount
     {
-        public UserEntity GetUserInfo()
+        public UserEntity GetUserInfo(object uid)
         {
             string sql = "select * from emp where 1=1";
             var user = DbHelper.Query<UserEntity>(sql).FirstOrDefault();

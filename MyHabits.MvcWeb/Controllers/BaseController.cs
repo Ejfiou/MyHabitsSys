@@ -55,10 +55,6 @@ namespace MyHabits.MvcWeb.Controllers
             LogHelper.Error(filterContext.Exception.Message, filterContext.Exception);
             //标志异常已处理
             filterContext.ExceptionHandled = true;
-            //filterContext.HttpContext.Response.Clear();
-            //filterContext.HttpContext.Response.StatusCode = 500;
-            //filterContext.HttpContext.Response.TrySkipIisCustomErrors = true;
-            //base.OnException(filterContext);
         }
 
         /// <summary>

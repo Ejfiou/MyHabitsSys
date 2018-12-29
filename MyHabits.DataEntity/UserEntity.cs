@@ -21,10 +21,10 @@ namespace MyHabits.DataEntity
         [DataMember]
         [Key]
         public int eid { get; set; }
-        public string name { get; set; }
+        public string UserID { get; set; }
 
         public int age { get; set; }
 
-        public string salary { get; set; }
+        public string Password { get; set; }
     }
 }
