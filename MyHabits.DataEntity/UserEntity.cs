@@ -10,21 +10,44 @@ using System.Threading.Tasks;
 
 namespace MyHabits.DataEntity
 {
-    [Table("Emp")]
+    [Table("user")]
     [DataContract(IsReference = true)]
     [KnownType(typeof(UserEntity))]
     public class UserEntity
     {
-        //eid, name, age, salary
+  
+       
+        [DataMember]
+        [Key]
+        public int ID { get; set; }
 
         [Required]
         [DataMember]
-        [Key]
-        public int eid { get; set; }
-        public string name { get; set; }
+        public string userName { get; set; }
 
-        public int age { get; set; }
+        [Required]
+        [DataMember]
+        public string password { get; set; }
 
-        public string salary { get; set; }
+        [DataMember]
+        public int userAge { get; set; }
+
+        [DataMember]
+        public int userSex { get; set; }
+
+        [DataMember]
+        public string userImg { get; set; }
+
+        [DataMember]
+        public string userEmail { get; set; }
+
+        [DataMember]
+        public string userStatus { get; set; }
+
+        [DataMember]
+        public int userQQ { get; set; }
+
+        [DataMember]
+        public int userPhone { get; set; }
     }
 }

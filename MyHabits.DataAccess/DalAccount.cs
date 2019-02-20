@@ -15,5 +15,12 @@ namespace MyHabits.DataAccess
             var user = DbHelper.Query<UserEntity>(sql).FirstOrDefault();
             return user;
         }
+
+        public bool UserRegist(UserEntity user)
+        {
+          
+            var flag = DbHelper.Insert<UserEntity>(user);
+            return flag>0;
+        }
     }
 }

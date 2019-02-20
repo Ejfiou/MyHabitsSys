@@ -2,6 +2,81 @@
 @{
     ViewBag.Title = "Login";
 }
+<head>
 
-<h2>Login</h2>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/MyScript/login.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/login.css" />
+</head>
+<body>
+    <!--正文-->
+    <section>
+        正文
+        <button id="loginbtn">登陆</button>
+        <button id="registerbtn">注册</button>
+    </section>
 
+    <!--登陆-->
+    <div class="alllogin loginpage">
+        <span class="closelogin">x</span><br />
+        <div class="loginhead">
+            <p class="logintext">
+                <span class="UserText">用户登录</span>
+                <span class="IsUser">还没有账号？<span id="loginSkip" class="Skip">立即注册</span></span>
+            </p>
+
+            <div class="head-img">
+                <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg">
+            </div>
+        </div>
+        <form action="">
+            <p class="Inputbox">
+                用户名&nbsp;<input type="text" class="UserName"><br />
+                <span class="TextTip">-</span>
+            </p>
+            <p class="Inputbox">
+                密&nbsp;&nbsp;&nbsp;码&nbsp;<input type="text" class="PassWord"><br />
+                <span class="TextTip">-</span>
+            </p>
+            <button id="login" class="btnstyle">登陆</button>
+        </form>
+    </div>
+    <!--注册-->
+    <div class="alllogin registerpage">
+        <span class="closelogin">x</span><br />
+        <div class="loginhead">
+            <p class="logintext">
+                <span class="UserText">用户注册</span>
+                <span class="IsUser">已有账号？<span id="registerSkip" class="Skip">立即登陆</span></span>
+            </p>
+        </div>
+        <form action="">
+            <p class="Inputbox">
+                用户名&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="UserName"><br />
+                <span class="TextTip">*用户名不存在</span>
+            </p>
+            <p class="Inputbox">
+                密&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="password1"><br />
+                <span class="TextTip">*密码错误</span>
+            </p>
+            <p class="Inputbox">
+                确认密码&nbsp;<input type="text" id="password2"><br />
+                <span class="TextTip">*密码错误</span>
+            </p>
+            <p class="Inputbox">
+                QQ号码&nbsp;&nbsp;<input type="text" id="userQQ"><br />
+                <span class="TextTip">*QQ号码错误</span>
+            </p>
+            <p class="Inputbox">
+                邮&nbsp;&nbsp;&nbsp;箱&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="userEmail"><br />
+                <span class="TextTip">*邮箱错误</span>
+            </p>
+            <p class="Inputbox">
+                验证码&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Vcode" style="width:100px;"><button id="VerificationCode" class="btnstyle" style="width:80px;">获取验证码</button><br />
+                <span class="TextTip">*验证码错误</span>
+            </p>
+            <button id="btnRegist" class="btnstyle">注册</button>
+        </form>
+
+    </div>
+</body>

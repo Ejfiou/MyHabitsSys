@@ -14,5 +14,10 @@ namespace MyHabits.Business
         {
             return dal.GetUserInfo();
         }
+
+        public bool UserRegist(UserEntity user)
+        {
+            return dal.UserRegist(user);
+        }
     }
 }
