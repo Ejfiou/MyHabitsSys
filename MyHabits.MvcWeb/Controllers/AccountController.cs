@@ -20,7 +20,30 @@ namespace MyHabits.MvcWeb.Controllers
             //var user = bll.GetUserInfo();
             return View();
         }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public JsonResult UserLogin(UserEntity user)
+        {
+            if (bll.GetUserInfo(user).Count>0)
+            {
+                return Json(new AjaxResult() { success = true, msg = "登录成功" });
+            }
+            else
+            {
+                return Json(new AjaxResult() { success = false, msg = "用户名或密码错误" });
+            }
+        }
 
+
+        /// <summary>
+        /// 驻车
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="emailCode"></param>
+        /// <returns></returns>
         public JsonResult Regist(UserEntity user,string emailCode)
         {
             if (Session["EmailCode"]!=null)
@@ -34,6 +57,7 @@ namespace MyHabits.MvcWeb.Controllers
 
                 if (bll.UserRegist(user))
                 {
+                    Session["EmailCode"] = null;
                     return Json(new AjaxResult() { success = true, msg = "注冊成功" });
                 }
                 else
@@ -64,7 +88,7 @@ namespace MyHabits.MvcWeb.Controllers
             }
             catch (Exception ex)
             {
-
+                LogHelper.Error($"验证码发送错误：邮箱地址【{emailAddress}】",ex);
                 throw;
             }
           
@@ -85,7 +109,7 @@ namespace MyHabits.MvcWeb.Controllers
             //收件人邮箱地址。
             mailMessage.To.Add(new MailAddress(toMail));
             //邮件标题。
-            mailMessage.Subject = "重置密码";
+            mailMessage.Subject = "用户注册";
             //邮件内容。
             mailMessage.Body = content;
 

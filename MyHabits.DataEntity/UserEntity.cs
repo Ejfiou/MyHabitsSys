@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyHabits.DataEntity
 {
-    [Table("user")]
+    [Table("userinfo")]
     [DataContract(IsReference = true)]
     [KnownType(typeof(UserEntity))]
     public class UserEntity

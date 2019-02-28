@@ -8,7 +8,7 @@
     <script src="~/Scripts/MyScript/login.js"></script>
     <link type="text/css" rel="stylesheet" href="~/Content/MyCss/login.css" />
 </head>
-<body>
+<body id="alllogin">
     <!--正文-->
     <section>
         正文
@@ -31,14 +31,14 @@
         </div>
         <form action="">
             <p class="Inputbox">
-                用户名&nbsp;<input type="text" class="UserName"><br />
-                <span class="TextTip">-</span>
+                用户名&nbsp;<input id="loginName" type="text" class="UserName"><br />
+        
             </p>
             <p class="Inputbox">
-                密&nbsp;&nbsp;&nbsp;码&nbsp;<input type="text" class="PassWord"><br />
-                <span class="TextTip">-</span>
+                密&nbsp;&nbsp;&nbsp;码&nbsp;<input id="loginPwd" type="text" class="PassWord"><br />
+               
             </p>
-            <button id="login" class="btnstyle">登陆</button>
+            <button id="btnLogin" class="btnstyle" style="margin-top: 40px;">登陆</button>
         </form>
     </div>
     <!--注册-->
@@ -53,29 +53,37 @@
         <form action="">
             <p class="Inputbox">
                 用户名&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="UserName"><br />
-                <span class="TextTip">*用户名不存在</span>
+               <img id="imgWaiting"  height="20px" width="20px" src="~/Img/0.gif" />
+             
+                <span class="TextTip spantrue">*用户名可用</span>
+                <span class="TextTip spanfalse">*由字母、数字、_组成，非数字开头,5~17位</span>
             </p>
             <p class="Inputbox">
                 密&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="password1"><br />
-                <span class="TextTip">*密码错误</span>
+                <span class="TextTip spantrue" >*输入正确</span>
+                <span class="TextTip spanfalse">*密码必须由字符组成，长度为4~18位</span>
             </p>
             <p class="Inputbox">
-                确认密码&nbsp;<input type="text" id="password2"><br />
-                <span class="TextTip">*密码错误</span>
+                确认密码&nbsp;<input type="password" id="password2"><br />
+                <span class="TextTip spantrue">*输入正确</span>
+                <span class="TextTip spanfalse">*两次输入的密码不一致</span>
             </p>
             <p class="Inputbox">
                 QQ号码&nbsp;&nbsp;<input type="text" id="userQQ"><br />
-                <span class="TextTip">*QQ号码错误</span>
+                <span class="TextTip spantrue">*输入正确</span>
+                <span class="TextTip spanfalse">*请输入正确的QQ号码</span>
             </p>
             <p class="Inputbox">
                 邮&nbsp;&nbsp;&nbsp;箱&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="userEmail"><br />
-                <span class="TextTip">*邮箱错误</span>
+                <span class="TextTip spantrue">*输入正确</span>
+                <span class="TextTip spanfalse">*您输入的邮箱账号格式有误</span>
             </p>
             <p class="Inputbox">
-                验证码&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Vcode" style="width:100px;"><button id="VerificationCode" class="btnstyle" style="width:80px;">获取验证码</button><br />
-                <span class="TextTip">*验证码错误</span>
+                验证码&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Vcode" style="width:100px;"><button type="button" id="VerificationCode" class="btnstyle" style="width:80px;">获取验证码</button><br />
+                <span class="TextTip spantrue">*输入正确</span>
+                <span class="TextTip spanfalse">*验证码错误</span>
             </p>
-            <button id="btnRegist" class="btnstyle">注册</button>
+            <button id="btnRegist" class="btnstyle" style="margin-top: 40px;">注册</button>
         </form>
 
     </div>
