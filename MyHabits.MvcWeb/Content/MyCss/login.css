@@ -6,6 +6,9 @@
     margin: 0;
     padding: 0;
 }
+input, textarea, select {
+    outline:none;
+}
 /*主体样式*/
 
 /*登陆注册框整体样式*/
@@ -13,7 +16,7 @@
     width: 400px;
     height: 500px;
     position: fixed;
-    z-index: 1000;
+    z-index: 20000;
     background: #ffffff;
     left: 50%;
     top: 50%;
@@ -29,7 +32,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 19999;
     opacity: 0.3;
     display: none;
 }
@@ -173,7 +176,7 @@ input {
     width: 100%;
     height: 60px;
     line-height: 60px;
-    border-bottom: 1px solid darkgray;
+    border-bottom: 1px solid #e9e9e9;
     padding-top: 20px;
     background: #ffffff;
 }

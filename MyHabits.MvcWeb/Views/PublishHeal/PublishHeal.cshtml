@@ -9,22 +9,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-   @* <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HomePage.css" scoped />*@
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/PublishHeal.css"  />
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
-  @*  <script src="~/Scripts/MyScript/HomePage.js"></script>*@
+    <script src="~/Scripts/MyScript/PublishHeal.js"></script>
    @* <script src="~/Scripts/MyScript/Carousel.js"></script>*@
 
 </head>
 
 <body>
-    <div id="editor" style="width:80%;margin:0 auto;    ">
-        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    <div id="PublishText">
+        <!--左边栏内容-->
+        <div class="PublishLeft">
+            <div class="ContentText">
+                <div class="list-group-item list-group-title">内容</div>
+                <a href="#" class="list-group-item" data-title="article" target="_blank">问卷管理</a>
+                <a href="#" class="list-group-item" data-title="article" target="_blank">文章管理</a>
+                <a href="#" class="list-group-item" data-title="article" target="_blank">草稿箱</a>
+                <a href="#" class="list-group-item Borbottom" data-title="article" target="_blank">问卷发布</a>
+            </div>
+            <div class="ContentText">
+                <div class="list-group-item list-group-title">联系方式</div>
+                <div class="list-group qq-chat-box">
+                    <div class="img-box text-center">
+                        <img src="~/Img/QQ.jpg" />
+                        <p>QQ客服</p>
+                    </div>
+                </div>
+                <div class="list-group qq-chat-box">
+                    <div class="img-box text-center">
+                        <img src="~/Img/wechat.jpg" />
+                        <p>微信客服</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END-->
+        <!--右边栏内容 文本编辑器-->
+        <div id="PublishRight">
+            <input type="text" id="txtTitle" maxlength="100" placeholder="输入文章标题" />
+            <div id="editor"></div>
+            <div id="moreDiv">
+                <div class="pos-box">
+                    文章类型:&nbsp;&nbsp;
+                    <select id="heal_type" required>
+                        <option value="0">请选择</option>
+                        <option value="1">导航</option>
+                        <option value="2">左侧栏</option>
+                        <option value="3">健康资讯</option>
+                        <option value="4">美容护肤</option>
+                    </select>
+                    <span class="redstart">*</span>
+                </div>
+                <div class="txt-box">
+                    <input id="btnRelease" class="btnMain btnheal" type="button" value="发布资讯" />
+                    <input id="btnDrafts" class="btnMain btnheal" type="button" value="保存为草稿" />
+                    <input class="btngray btnheal" type="button" value="返回" />
+                </div>
+            </div>
+        </div>
+        <!--END-->
     </div>
-    <script type="text/javascript">
-        var E = window.wangEditor
-        var editor = new E('#editor')
-        // 或者 var editor = new E( document.getElementById('editor') )
-        editor.create()
-    </script>
+        <script type="text/javascript">
+            var E = window.wangEditor;
+            var editor = new E('#editor');
+            editor.create();
+        </script>
 </body>

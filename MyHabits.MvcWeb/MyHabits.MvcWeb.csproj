@@ -143,6 +143,7 @@
     <Content Include="Content\error.css" />
     <Content Include="Content\MyCss\HomePage.css" />
     <Content Include="Content\MyCss\login.css" />
+    <Content Include="Content\MyCss\PublishHeal.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -157,13 +158,16 @@
     <Content Include="Img\bluefu.png" />
     <Content Include="Img\greenfu.png" />
     <Content Include="Img\left.png" />
+    <Content Include="Img\QQ.jpg" />
     <Content Include="Img\redfu.png" />
     <Content Include="Img\right.png" />
     <Content Include="Img\UserImg\461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+    <Content Include="Img\wechat.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\MyScript\Carousel.js" />
     <Content Include="Scripts\MyScript\HomePage.js" />
+    <Content Include="Scripts\MyScript\PublishHeal.js" />
     <Content Include="WebService1.asmx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
