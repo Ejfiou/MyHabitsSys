@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "PublishHeal";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   @* <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HomePage.css" scoped />*@
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+  @*  <script src="~/Scripts/MyScript/HomePage.js"></script>*@
+   @* <script src="~/Scripts/MyScript/Carousel.js"></script>*@
+
+</head>
+
+<body>
+    <div id="editor" style="width:80%;margin:0 auto;    ">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+    <script type="text/javascript">
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        // 或者 var editor = new E( document.getElementById('editor') )
+        editor.create()
+    </script>
+</body>

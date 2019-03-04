@@ -1,4 +1,6 @@
 ﻿$(function () {
+    color();
+    navbar();
     loginbtnopen();
     console.log(111);
 
@@ -42,14 +44,19 @@
             password: userPwd,
         }, function (res) {
             if (res.success) {
-             //登录成功
-                alert(res.msg);
+                //登录成功
+                //alert(res.msg);
+                $(".loginpage").hide();
+                $("#mask").css("display", "none");//遮罩隐藏
+                $("#nav-log").addClass("disp");
+                $("#nav-tx").removeClass("disp");
             }
             else {
                 //登录失败
-                alert(res.msg);
+                $(".spanhidd").css("visibility", "visible");
+                //alert(res.msg);
             }
-            });
+        });
 
         return false;
 
@@ -85,7 +92,32 @@
 
 
 
-})
+});
+//导航栏
+function navbar() {
+    $('#navbar .nav ul li').mouseover(function () {
+        var con = $(this).index();
+        console.log(con);
+        $('.bottom-nav').css({
+            left: 76 * con + 'px'
+        });
+    });
+
+    $('#navbar .nav ul li').mouseleave(function () {
+        $('.bottom-nav').css({
+            left: '0px'
+        });
+    });
+    $('#imgul-tx').hover(function () {
+        console.log(111);
+        $('.img-arrow').css("transform", "rotate(180deg)");
+        $('.drop-down').stop().slideDown();
+
+    }, function () {
+        $('.img-arrow').css("transform", "rotate(0deg)");
+        $('.drop-down').stop().slideUp();
+    });
+};
 //登陆注册功能入口
 function loginbtnopen() {
     $("<div id='mask'></div>").appendTo("body");
@@ -232,38 +264,20 @@ function btnRegistshow() {
     }
     
 }
+//主体颜色换肤
+function color() {
+    $("#red").click(function () {
+        console.log(111);
+        document.body.style.setProperty('--main-color', '#ca0c16');
+    });
+    $("#green").click(function () {
+        document.body.style.setProperty('--main-color', '#1AAD19');
+    });
+    $("#blue").click(function () {
+        document.body.style.setProperty('--main-color', '#2672ff');
+    });
+}
 
-   
-//$("#VerificationCode").click(function () {
-//    var code = $("#VerificationCode");
-//    code.attr("disabled", "disabled");
-   
-//    //setTimeout(function () {
-       
-//    //}, 1000)
-//    var time = 60;
-//    var set = setInterval(function () {
-//        code.css("opacity", "0.8");
-//        code.val("(" + --time + ")秒后重新获取");
-//        if (time == 0) {
-//            code.attr("disabled", false).val("重新获取验证码");
-//            clearInterval(set);
-//        }
-//    }, 1000);
-//    //setTimeout(function () {
-//    //    code.attr("disabled", false).val("重新获取验证码");
-//    //    clearInterval(set);
-//    //}, 60000);
-//        var userEmail = $("#userEmail").val();
-      
-//        $.post('/Account/GetEmailCode', {
-//            emailAddress: userEmail           
-//        }, function () {
-            
-//        });
-
-//        return false;
-//    });
 
 function verif() {
     $("#VerificationCode").click(function (){
@@ -297,32 +311,3 @@ function verif() {
     })
 }
 
-//function verif() {
-//    var code = $("#VerificationCode");
-//    code.unbind()
-//    if ($("#userEmail").nextAll("span:first").css("display") === "none") {
-//        alert("先填写邮箱");
-//        $("#userEmail").focus();
-//        return false;
-//    }
-//    code.attr("disabled", "disabled");
-//    var time = 60;
-//    var set = setInterval(function () {
-//        code.addClass("graybtndis");
-//        code.text("(" + --time + ")秒后重新获取");
-//        if (time == 0) {
-//            code.removeClassClass("graybtndis");
-//            code.attr("disabled", false).text("重新获取验证码");
-//            clearInterval(set);
-//        }
-//    }, 1000);
-//    var userEmail = $("#userEmail").val();
-
-//        $.post('/Account/GetEmailCode', {
-//            emailAddress: userEmail           
-//        }, function () {
-
-//        });
-
-//        return false;
-//}

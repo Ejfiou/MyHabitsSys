@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HomePage.css"  scoped/>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/MyScript/HomePage.js"></script>
+    <script src="~/Scripts/MyScript/Carousel.js"></script>
+
+</head>
+
+<body>
+    
+    <!--轮播图-->
+    <div class="Rotation-Chart">
+        <div class="poster-main" id="Rotation-Chart">
+            <div class="poster-btn poster-prev-btn"></div>
+            <ul class="poster-list">
+                <li class="poster-item">
+                    <a href="#"><img src="~/Img/a1.png"></a>
+                    <span class="poster-item-title">Picture information 1</span>
+                </li>
+                <li class="poster-item">
+                    <a href="#"><img src="~/Img/a2.png"></a>
+                    <span class="poster-item-title">Picture information 2</span>
+                </li>
+                <li class="poster-item">
+                    <a href="#"><img src="~/Img/a3.png"></a>
+                    <span class="poster-item-title">Picture information 3</span>
+                </li>
+                <li class="poster-item">
+                    <a href="#"><img src="~/Img/a4.png"></a>
+                    <span class="poster-item-title">Picture information 4</span>
+                </li>
+                <li class="poster-item">
+                    <a href="#"><img src="~/Img/a5.png"></a>
+                    <span class="poster-item-title">Picture information 5</span>
+                </li>
+            </ul>
+            <div class="poster-btn poster-next-btn"></div>
+        </div>
+    </div>
+    <!--END-->
+    <section>
+        <div class="Title">
+            <h1>健康&nbsp;·&nbsp;互动</h1>
+            <div class="heal-bottom"></div>
+        </div>
+        <div class="heal">
+            <div class="heal-left">
+                <h3>健康资讯</h3>
+                <ul>
+                    <li><a href="#">三部门联合公布8起食品保健食品重…</a></li>
+                    <li><a href="#">一类炎症用药被叫停</a></li>
+                    <li><a href="#">含呋喃唑酮复方制剂撤市 涉及12…</a></li>
+                    <li><a href="#">贵阳药品抽验合格率 达99.5%</a></li>
+                    <li><a href="#">市监总局、农业农村部：猪肉制品生…</a></li>
+                    <li><a href="#">一些电商公然售卖毒杀野生鸟类药 …</a></li>
+                    <li><a href="#">男子朋友圈卖97种“三无性药” …</a></li>
+                    
+                </ul>
+            </div>
+            <div class="heal-right">
+                <h3>健康生活宝典</h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                            <span>百科名医</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Questionnaire">
+                <a href="#"><div class="QusetBtn">调查问卷</div></a>
+                <a href="#"><div class="fourbtn">熱門</div></a>
+                <a href="#"><div class="fourbtn">熱門</div></a>
+                <a href="#"><div class="fourbtn">熱門</div></a>
+                <a href="#"><div class="fourbtn">熱門</div></a>
+            </div>
+        </div>
+        
+        <div class="Title">
+            <h1>健康&nbsp;·&nbsp;互动</h1>
+            <div class="heal-bottom"></div>
+        </div>
+        <div class="heal">
+            <h3>健康资讯</h3>
+            <ul>
+                <li><a href="#">你好这是我的饿按时是是</a></li>
+                <li><a href="#">你好这是我23323按时是是</a></li>
+                <li><a href="#">你好这是我的饿2323按时是是</a></li>
+                <li><a href="#">你好这是我的饿4344按时是是</a></li>
+                <li><a href="#">你好这是我434dds的饿按时是是</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        //$(".poster-main").Carousel("init");
+
+        $(".poster-main").Carousel({
+            "width": 1200,
+            "height": 470,
+            "posterWidth": 600,
+            "posterHeight": 400,
+            "scale": 0.75,
+            "speed": 1500,
+            "autoPlay": true,
+            "delay": 1500,
+            "verticalAlign": "middle"
+        });
+
+    </script>
+</body>

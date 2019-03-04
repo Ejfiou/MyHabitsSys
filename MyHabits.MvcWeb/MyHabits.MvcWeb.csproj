@@ -124,6 +124,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\PublishHealController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,15 +141,29 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\error.css" />
+    <Content Include="Content\MyCss\HomePage.css" />
     <Content Include="Content\MyCss\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Img\0.gif" />
+    <Content Include="Img\a1.png" />
+    <Content Include="Img\a2.png" />
+    <Content Include="Img\a3.png" />
+    <Content Include="Img\a4.png" />
+    <Content Include="Img\a5.png" />
+    <Content Include="Img\arrow-ios-downward-o.png" />
+    <Content Include="Img\bluefu.png" />
+    <Content Include="Img\greenfu.png" />
+    <Content Include="Img\left.png" />
+    <Content Include="Img\redfu.png" />
+    <Content Include="Img\right.png" />
     <Content Include="Img\UserImg\461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\MyScript\Carousel.js" />
+    <Content Include="Scripts\MyScript\HomePage.js" />
     <Content Include="WebService1.asmx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -173,6 +189,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\HomePage\HomePage.cshtml" />
+    <Content Include="Views\PublishHeal\PublishHeal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
