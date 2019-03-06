@@ -39,7 +39,7 @@ namespace MyHabits.MvcWeb.Controllers
 
 
         /// <summary>
-        /// 驻车
+        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <param name="emailCode"></param>
@@ -54,8 +54,8 @@ namespace MyHabits.MvcWeb.Controllers
                     return Json(new AjaxResult() { success=false,msg="验证码错误"});
                 }
 
-
-                if (bll.UserRegist(user))
+                bool flag = bll.UserRegist(user);
+                if (flag==true)
                 {
                     Session["EmailCode"] = null;
                     return Json(new AjaxResult() { success = true, msg = "注冊成功" });

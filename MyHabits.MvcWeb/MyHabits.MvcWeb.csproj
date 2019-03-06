@@ -167,6 +167,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\MyScript\Carousel.js" />
     <Content Include="Scripts\MyScript\HomePage.js" />
+    <Content Include="Scripts\MyScript\HomePageInfo.js" />
     <Content Include="Scripts\MyScript\PublishHeal.js" />
     <Content Include="WebService1.asmx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -195,6 +196,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HomePage\HomePage.cshtml" />
     <Content Include="Views\PublishHeal\PublishHeal.cshtml" />
+    <Content Include="Views\HomepageInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -103,11 +103,15 @@ section{
     /*background:#903333;*/
     margin-left:20px;
 }
-.heal ul li {
-    overflow: hidden;
-    font: 18px Verdana, "Microsoft YaHei", sans-serif;
-    margin-top: 10px;
-}
+    .heal ul li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 90%;
+        font: 18px Verdana, "Microsoft YaHei", sans-serif;
+        margin-top: 10px;
+    }
     .heal ul li a {
         color: #000;
         -webkit-transition: all 0.5s;

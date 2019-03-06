@@ -12,6 +12,24 @@ function Healinfo() {
         console.log(heal_title);
         console.log(heal_content);
         console.log(heal_type);
+        $.post('/PublishHeal/Sethealth', {
+            heal_title: heal_title,
+            heal_content: heal_content,
+            heal_typeID: heal_type,
+            heal_count: 3,
+            heal_status: 1
+        }, function (res) {
+                if (res.success) {
+                    alert(res.msg);
+                    console.log("成功写入");
+                }
+                else {
+                    alert(res.msg);
+                    console.log("写入失败");
+                }
+            });
+
+        return false;
     });
 };
 function healtype() {
