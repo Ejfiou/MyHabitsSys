@@ -85,7 +85,7 @@ namespace MyHabits.MvcWeb.Controllers
                 var userInfo = System.Web.HttpContext.Current.Cache["usr_" + uname] as UserEntity;
                 if (userInfo == null)
                 {
-                    throw new AuthenticationException("您的凭据已经失效，请重新登录。");
+                    //throw new AuthenticationException("您的凭据已经失效，请重新登录。");
                 }
                 return userInfo;
             }

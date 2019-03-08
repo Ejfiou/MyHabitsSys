@@ -14,12 +14,17 @@ namespace MyHabits.MvcWeb.Controllers
         {
             return View();
         }
-        public ActionResult UploadFile(HttpPostedFileBase file)
+        public JsonResult UploadFile()
         {
+            HttpPostedFileBase file = Request.Files[0];
+            if (file is null)
+            {
+                return null;
+            }
             var fileName = file.FileName;
-            var filePath = Server.MapPath(string.Format("~/{0}", "File"));
+            var filePath = Server.MapPath(string.Format("~/{0}", "Img\\UserImg"));
             file.SaveAs(Path.Combine(filePath, fileName));
-            return View();
+            return null;
         }
     }
 }
