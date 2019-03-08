@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Personalinfo";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/PersonalinfoAll.css" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/MyScript/Personalinfo.js"></script>
+
+</head>
+<body>
+    <section class="share_personal">
+        <div class="share_top">
+            <div class="share_img">
+                <img src="~/Img/UserImg/5b876ab47160c232.jpg!200x200.jpg" />
+            </div>
+            <div class="share_right">
+                <h2 id="Nickname">俗人.</h2>
+            </div>
+            <div class="share_white">个人主页</div>
+        </div>
+        <div class="share_con_bottom">
+            <div class="share_list_con">
+                <div class="share_list_con1">
+                <div class="sharelist"><img src="~/Img/userimg.png"/>个人信息</div>
+                </div>
+                <div class="share_list_con2">
+                    <div class="sharelist"><img src="~/Img/pwdimg.png" />修改密码</div>
+                </div>
+                <div class="share_list_con3">
+                    <div class="sharelist"><img src="~/Img/headimg.png" />修改头像</div>
+                </div>
+            </div>
+            <div class="share_right_con">
+                <div class="share_right_con1">
+                    <table cellpadding="0" cellspacing="0" class="admin_table">
+                        <tbody>
+                            <tr>
+                                <td class="admin_text">电子邮箱:</td>
+                                <td class="data_right"><b>613149780@qq.com</b></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">昵称:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">年龄:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">性别:</td>
+                                <td class="data_right">
+                                    <select>
+                                        <option value="0">请选择</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">QQ:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">手机号:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" class="infobtn" value="确认修改" id="userbtn" />
+                </div>
+                <div class="share_right_con2">
+                    <table cellpadding="0" cellspacing="0" class="admin_table">
+                        <tbody>
+                            <tr>
+                                <td class="admin_text">原密码:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">新密码:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="admin_text">确认密码:</td>
+                                <td class="data_right"><input type="text" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" class="infobtn pswbtn" id="psdbtn" value="确认密码" />
+                </div>
+                @using (Html.BeginForm("Personalinfo", "Personalinfo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="share_right_con3">
+                        <p>
+                            <input type="file" name="image" onchange="previewFile()" id="filed" />
+                        </p>
+                        <p class="showimg">
+                            <img src="~/Img/UserImg/moren.png" height="100" width="200" alt="这是略缩图..." class="imgshow" />
+                        </p>
+                        <input type="button" class="infobtn pswbtn" id="photobtn" value="确认头像" />
+                    </div>
+                   
+                    <input type="submit" value="提交" />
+                }
+
+
+            </div>
+        </div>
+    </section>
+</body>

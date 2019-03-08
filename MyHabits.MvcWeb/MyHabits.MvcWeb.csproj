@@ -125,6 +125,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\HomepageInfoController.cs" />
+    <Compile Include="Controllers\PersonalinfoController.cs" />
     <Compile Include="Controllers\PublishHealController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,6 +145,7 @@
     <Content Include="Content\error.css" />
     <Content Include="Content\MyCss\HomePage.css" />
     <Content Include="Content\MyCss\login.css" />
+    <Content Include="Content\MyCss\PersonalinfoAll.css" />
     <Content Include="Content\MyCss\PublishHeal.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -157,18 +160,25 @@
     <Content Include="Img\arrow-ios-downward-o.png" />
     <Content Include="Img\bluefu.png" />
     <Content Include="Img\greenfu.png" />
+    <Content Include="Img\headimg.png" />
     <Content Include="Img\left.png" />
+    <Content Include="Img\pwdimg.png" />
     <Content Include="Img\QQ.jpg" />
     <Content Include="Img\redfu.png" />
     <Content Include="Img\right.png" />
+    <Content Include="Img\userimg.png" />
     <Content Include="Img\UserImg\461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+    <Content Include="Img\UserImg\5b876ab47160c232.jpg!200x200.jpg" />
+    <Content Include="Img\UserImg\moren.png" />
     <Content Include="Img\wechat.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\MyScript\Carousel.js" />
     <Content Include="Scripts\MyScript\HomePage.js" />
     <Content Include="Scripts\MyScript\HomePageInfo.js" />
+    <Content Include="Scripts\MyScript\Personalinfo.js" />
     <Content Include="Scripts\MyScript\PublishHeal.js" />
+    <Content Include="Scripts\Personalinfo.js" />
     <Content Include="WebService1.asmx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -196,7 +206,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HomePage\HomePage.cshtml" />
     <Content Include="Views\PublishHeal\PublishHeal.cshtml" />
-    <Content Include="Views\HomepageInfo.cshtml" />
+    <Content Include="Views\HomepageInfo\HomepageInfo.cshtml" />
+    <Content Include="Views\Personalinfo\Personalinfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,7 +16,7 @@ function Healinfo() {
             heal_title: heal_title,
             heal_content: heal_content,
             heal_typeID: heal_type,
-            heal_count: 3,
+            heal_count: 0,
             heal_status: 1
         }, function (res) {
                 if (res.success) {

@@ -50,6 +50,10 @@
                 $("#mask").css("display", "none");//遮罩隐藏
                 $("#nav-log").addClass("disp");
                 $("#nav-tx").removeClass("disp");
+                console.log(res.data[0].ID);
+                var href = $("#personbtn").attr("href");
+                $("#personbtn").attr("href", href + "?id=" + res.data[0].ID);
+                console.log($("#personbtn").attr("href"));  
             }
             else {
                 //登录失败

@@ -27,9 +27,13 @@ namespace MyHabits.MvcWeb.Controllers
         /// <returns></returns>
         public JsonResult UserLogin(UserEntity user)
         {
-            if (bll.GetUserInfo(user).Count>0)
+
+            UserEntity pub1 = new UserEntity();
+
+            List<UserEntity> listpub = bll.GetUserInfo(user);
+            if (listpub.Count>0)
             {
-                return Json(new AjaxResult() { success = true, msg = "登录成功" });
+                return Json(new AjaxResult() { success = true, msg = "登录成功" ,data = listpub });
             }
             else
             {
