@@ -10,9 +10,14 @@ namespace MyHabits.Business
     public class BllAccount
     {
         DalAccount dal = new DalAccount();
-        public UserEntity GetUserInfo(object uid)
+        public List<UserEntity> GetUserInfo(UserEntity query)
         {
-            return dal.GetUserInfo(object uid);
+            return dal.GetUserInfo(query);
+        }
+
+        public bool UserRegist(UserEntity user)
+        {
+            return dal.UserRegist(user);
         }
     }
 }
