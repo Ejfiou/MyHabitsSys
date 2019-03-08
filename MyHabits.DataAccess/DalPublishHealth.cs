@@ -1,4 +1,5 @@
-﻿using MyHabits.DataEntity;
+﻿using Dapper;
+using MyHabits.DataEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,21 @@ namespace MyHabits.DataAccess
 
             var healleft = DbHelper.Query<PublishHeal>(sql);
             return healleft;
+        }
+        public List<PublishHeal> SetHealthInfo(PublishHeal query)
+        {
+            string sql = "select * from healthinfo where  1=1";
+            var p = new DynamicParameters();
+            sql += " and ID = @ID ";
+            p.Add("@ID", query.ID);
+
+
+            string sql1 = "update healthinfo set heal_count = heal_count+1 where id = @ID";
+            DbHelper.Execute(sql1, p);
+
+            var healthinfo = DbHelper.Query<PublishHeal>(sql, p);
+
+            return healthinfo;
         }
     }
 }

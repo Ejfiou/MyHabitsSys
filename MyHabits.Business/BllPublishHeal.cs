@@ -19,5 +19,9 @@ namespace MyHabits.Business
         {
             return dal.HealthSet(heal);
         }
+        public List<PublishHeal> SetHealthInfo(PublishHeal healthinfo)
+        {
+            return dal.SetHealthInfo(healthinfo);
+        }
     }
 }
