@@ -4,16 +4,23 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MyHabits.Common;
+using MyHabits.Business;
+using MyHabits.DataEntity;
 namespace MyHabits.MvcWeb.Controllers
 {
     public class PersonalinfoController : BaseController
     {
+
         // GET: Personalinfo
         public ActionResult Personalinfo()
         {
             return View();
         }
+
+
+        private BllAccount bll = new BllAccount();
+
         public JsonResult UploadFile()
         {
             HttpPostedFileBase file = Request.Files[0];
@@ -24,7 +31,22 @@ namespace MyHabits.MvcWeb.Controllers
             var fileName = file.FileName;
             var filePath = Server.MapPath(string.Format("~/{0}", "Img\\UserImg"));
             file.SaveAs(Path.Combine(filePath, fileName));
-            return null;
+
+            if (Session["UserInfo"]!= null)
+            {
+
+                int id = (Session["UserInfo"] as UserEntity).ID;
+                string userImg = Path.Combine("\\Img\\UserImg", fileName);
+
+                UserEntity user = bll.GetUserById(id);
+                if (user != null)
+                {
+                    user.userImg = userImg;
+                    bll.UpdateUserImg(user);
+                }
+              
+            }
+            return Json(new AjaxResult() {success = true, msg = Path.Combine(filePath, fileName)});
         }
     }
 }

@@ -29,11 +29,26 @@ namespace MyHabits.DataAccess
             return user;
         }
 
+        public UserEntity GetUserById(int id)
+        {
+            string sql = "select * from [userinfo] where ID = @id";
+            var p = new DynamicParameters();
+            p.Add("@id", id);
+            var user = DbHelper.Query<UserEntity>(sql, p);
+
+            return user.Count>0 ? user[0]:null;
+        }
+
         public bool UserRegist(UserEntity user)
         {
           
             var flag = DbHelper.Insert<UserEntity>(user);
             return flag>0;
+        }
+
+        public bool UpdateUserImg(UserEntity user)
+        {
+            return DbHelper.Update(user);
         }
     }
 }

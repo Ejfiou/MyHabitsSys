@@ -33,10 +33,12 @@ namespace MyHabits.MvcWeb.Controllers
             List<UserEntity> listpub = bll.GetUserInfo(user);
             if (listpub.Count>0)
             {
+                Session["UserInfo"] = listpub[0];
                 return Json(new AjaxResult() { success = true, msg = "登录成功" ,data = listpub });
             }
             else
             {
+                Session["UserInfo"] = null;
                 return Json(new AjaxResult() { success = false, msg = "用户名或密码错误" });
             }
         }

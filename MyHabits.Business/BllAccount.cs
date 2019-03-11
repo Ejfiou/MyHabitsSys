@@ -19,5 +19,15 @@ namespace MyHabits.Business
         {
             return dal.UserRegist(user);
         }
+
+        public bool UpdateUserImg(UserEntity user)
+        {
+            return dal.UpdateUserImg(user);
+        }
+
+        public UserEntity GetUserById(int id)
+        {
+            return dal.GetUserById(id);
+        }
     }
 }
