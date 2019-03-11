@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class HomePageController : Controller
+    public class HomePageController : BaseController
     {
         // GET: HomePage
         public ActionResult HomePage()

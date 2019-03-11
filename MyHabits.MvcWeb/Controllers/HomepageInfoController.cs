@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class HomepageInfoController : Controller
+    public class HomepageInfoController : BaseController
     {
         // GET: HomepageInfo
         public ActionResult HomepageInfo()

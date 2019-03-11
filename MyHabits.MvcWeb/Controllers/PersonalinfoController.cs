@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class PersonalinfoController : Controller
+    public class PersonalinfoController : BaseController
     {
         // GET: Personalinfo
         public ActionResult Personalinfo()

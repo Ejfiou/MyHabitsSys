@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class PublishHealController : Controller
+    public class PublishHealController : BaseController
     {
         // GET: PublishHeal
         BllPublishHeal bll = new BllPublishHeal();
