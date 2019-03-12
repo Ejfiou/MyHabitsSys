@@ -36,7 +36,7 @@
         <div class="nav-right nav-login disp" id="nav-tx">
             <ul id="imgul-tx">
                 <li class="imgli-tx">
-                    <img class="img-tx" src="~/img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
+                    <img class="img-tx"id="head_rightimg" src="~/img/UserImg/moren.png" />
                 </li>
                 <li class="imgli-tx">
                     <img class="img-arrow" src="~/Img/arrow-ios-downward-o.png" />
@@ -44,10 +44,8 @@
                 <div class="drop-down ">
                     <ul>
                         <li><a href="~/Personalinfo/Personalinfo" id="personbtn">个人信息</a></li>
-                        <li>注册</li>
-                        <li>注册</li>
-                        <li>注册</li>
-                        <li>退出</li>
+                        <li><a href="#" >我的問卷</a></li>
+                        <li><a href="#" >退出</a></li>
                     </ul>
                 </div>
             </ul>
@@ -67,7 +65,7 @@
             </p>
 
             <div class="head-img">
-                <img src="~/Img/UserImg/461893F4B4A36AD80ECB9BC17D94FE0F.jpg">
+                <img src="~/Img/UserImg/moren.png">
             </div>
         </div>
         <form action="">
@@ -97,8 +95,8 @@
                 用户名&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="UserName"><br />
                 <img id="imgWaiting" height="20px" width="20px" src="~/Img/0.gif" />
 
-                <span class="TextTip spantrue">*用户名可用</span>
-                <span class="TextTip spanfalse">*由字母、数字、_组成，非数字开头,5~17位</span>
+                <span class="TextTip spantrue" id="resulttrue">*用户名可用</span>
+                <span class="TextTip spanfalse" id="result">*由字母、数字、_组成，非数字开头,4~17位</span>
             </p>
             <p class="Inputbox">
                 密&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="password1"><br />

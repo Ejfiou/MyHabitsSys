@@ -3,6 +3,7 @@
 });
 
 function doload() {
+    MyUserInfo();
    $('#filed').change(function(){
 //获取input file的files文件数组;
 //$('#filed')获取的是jQuery对象，.get(0)转为原生对象;
@@ -22,15 +23,37 @@ reader.onload = function (e) {
     console.log(e.target.result);
 }
     })
-    $("#photobtn").click(function () {
-        var url = location.search;
-        console.log(url);
-        var id = parseInt(url.substr(4));
-        console.log(id);
-        console.log(typeof (id));
-        $.post('/Account/UserLogin', {
-            ID: id,
-        }, function (res) {
-        });
-    })
+   
+}
+function MyUserInfo() {
+    var url = location.search;
+    console.log(url);
+    var id = parseInt(url.substr(4));
+    console.log(id);
+    console.log(typeof (id));
+    $.post('/Personalinfo/SetMyuserInfo', {
+        ID: id,
+    }, function (res) {
+        console.log(res);
+        if (res.data[0].userImg != null) {
+
+            $("#bigimg").attr("src", res.data[0].userImg);
+        } else {
+            $("#bigimg").attr("src", "~/Img/UserImg/moren.png");
+        }
+        $("#userEmail").text(res.data[0].userEmail);
+        $("#nickName").val(res.data[0].nickName);
+        //$("#userQQ").attr("value", res.data[0].nickName);
+        //$("#userAge").val(res.data[0].userAge);
+        $("#userAge").val(20);
+        $("#userSex").val(1);
+        console.log($("#userSex").val());
+        //$("#userQQ").val(res.data[0].userQQ);
+        $("#userQQ").val("dsdd");
+        $("#userQQ").attr("value", "111");
+        document.getElementById("userQQ").value = "值";
+        console.log("qq:"+$("#userQQ").val());
+        $("#userPhone").val(res.data[0].userPhone);
+        console.log($("#userPhone").val());
+    });
 }

@@ -105,16 +105,18 @@ section{
 }
     .heal ul li {
         overflow: hidden;
-        text-overflow: ellipsis;
-        -o-text-overflow: ellipsis;
-        white-space: nowrap;
         width: 90%;
         font: 18px Verdana, "Microsoft YaHei", sans-serif;
         margin-top: 10px;
     }
+    .heal .heal-left ul li {
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
     .heal ul li a {
         color: #000;
-        -webkit-transition: all 0.5s;
+        -webkit-transition: all 0.2s;
     }
         .heal ul li a:hover {
             color: var(--main-color);

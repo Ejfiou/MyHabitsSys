@@ -49,5 +49,9 @@ namespace MyHabits.DataEntity
 
         [DataMember]
         public int userPhone { get; set; }
+
+        
+        [DataMember]
+        public string nickName { get; set; }
     }
 }

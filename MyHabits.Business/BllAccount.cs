@@ -29,5 +29,9 @@ namespace MyHabits.Business
         {
             return dal.GetUserById(id);
         }
+        public List<UserEntity> SetMyuserInfo(UserEntity user)
+        {
+            return dal.SetMyuserInfo(user);
+        }
     }
 }

@@ -50,5 +50,18 @@ namespace MyHabits.DataAccess
         {
             return DbHelper.Update(user);
         }
+
+        public List<UserEntity> SetMyuserInfo(UserEntity user)
+        {
+            string sql = "select * from userinfo where  1=1";
+            var p = new DynamicParameters();
+            sql += " and ID = @ID ";
+            p.Add("@ID", user.ID);
+
+            var Myuserinfo = DbHelper.Query<UserEntity>(sql, p);
+
+            return Myuserinfo;
+        }
     }
 }
+

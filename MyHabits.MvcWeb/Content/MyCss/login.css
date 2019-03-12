@@ -255,6 +255,9 @@ input {
     width: 40px;
     height: 40px;
 }
+#head_rightimg{
+    border-radius:40px;
+}
 
 .img-arrow {
     width: 15px;
@@ -294,7 +297,7 @@ input {
     width:200px;
     height:20px;
     position:absolute;
-    top:0;
+    top:-5px;
     right:-100px;
     margin-top:15px;
 }
@@ -316,3 +319,7 @@ input {
     .circular:active {
         background:darkgray;
     }
+
+#imgul-tx .drop-down ul li a{
+    width: 100px !important;
+}

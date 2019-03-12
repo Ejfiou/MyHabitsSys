@@ -18,13 +18,11 @@
             },
             success: function (data) {
                 if (data === 'True') {
-                    alert('用户名已存在');
                     $('#result').html('用户名已存在');
                     $('#btnReg').attr('disabled', true);
                 }
                 else {
-                    alert('可以使用');
-                    $('#result').html('可以使用');
+                    $('#resulttrue').css("display", "inline");
                     $('#btnReg').attr('disabled', false);
                 }
             },
@@ -54,6 +52,7 @@
                 var href = $("#personbtn").attr("href");
                 $("#personbtn").attr("href", href + "?id=" + res.data[0].ID);
                 console.log($("#personbtn").attr("href"));  
+                $("#head_rightimg").attr("src", res.data[0].userImg);
             }
             else {
                 //登录失败
@@ -78,16 +77,16 @@
             password: password,
             userEmail: userEmail,
             userQQ: userQQ,
-            emailCode: emailCode
+            emailCode: emailCode,
+            userStatus:0
         }, function (res) {
             if (res.success) {
-                $("#Vcode").nextAll("span:last").css("display", "inline");
-                $("#Vcode").nextAll("span:first").css("display", "none");
-                alert(res.msg);
+                $("#Vcode").nextAll("span:first").css("display", "inline");
+                $("#Vcode").nextAll("span:last").css("display", "none");
             }
             else {
-                $("#Vcode").nextAll("span:last").css("display", "none");
-                $("#Vcode").nextAll("span:first").css("display", "inline");
+                $("#Vcode").nextAll("span:first").css("display", "none");
+                $("#Vcode").nextAll("span:last").css("display", "inline");
             }
         });
 
@@ -210,6 +209,7 @@ function FormValidation() {
         console.log(key);
         var bool = key === 'password2' ? val !== $("#password1").val() : !reg[key].test(val);
         if (bool) {
+            $('#result').html('*由字母、数字、_组成，非数字开头,4~17位');
             console.log($(this).next('span[class="spantrue"]').text());
             $(this).nextAll("span:first").css("display", "none");
             $(this).nextAll("span:last").css("display", "inline");
@@ -222,7 +222,7 @@ function FormValidation() {
 
     //正则集合
     var reg = {
-        'UserName': /^[a-zA-Z_]\w{5,17}$/,
+        'UserName': /^[a-zA-Z_]\w{4,17}$/,
         'password1': /^[\w\`\!\@\#\$\%\^&\*\(\)\.\,\+\-\<\>\\\|\/\:\;\"\"\'\'\~\?\[\]\{\}]{4,18}$/,
         'userQQ': /^[1-9]\d{4,9}$/,
         'userEmail': /^\w+@[a-z0-9]{2,}(\.[a-z]{2,}){1,3}$/i,

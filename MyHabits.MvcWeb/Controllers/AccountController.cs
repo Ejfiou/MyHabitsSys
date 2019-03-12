@@ -111,7 +111,7 @@ namespace MyHabits.MvcWeb.Controllers
             //实例化一个发送邮件类。
             MailMessage mailMessage = new MailMessage();
             //发件人邮箱地址，方法重载不同，可以根据需求自行选择。
-            mailMessage.From = new MailAddress("1369540047@qq.com");
+            mailMessage.From = new MailAddress("1335434759@qq.com");
             //收件人邮箱地址。
             mailMessage.To.Add(new MailAddress(toMail));
             //邮件标题。
@@ -128,7 +128,7 @@ namespace MyHabits.MvcWeb.Controllers
             //不和请求一块发送。
             client.UseDefaultCredentials = false;
             //验证发件人身份(发件人的邮箱，邮箱里的生成授权码);
-            client.Credentials = new NetworkCredential("1369540047@qq.com", "izdwgemcwvexbadg");
+            client.Credentials = new NetworkCredential("1335434759@qq.com", "oujtgiwjsibhjhbe");
             //发送
             client.Send(mailMessage);
 

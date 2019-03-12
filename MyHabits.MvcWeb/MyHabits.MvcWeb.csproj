@@ -168,9 +168,11 @@
     <Content Include="Img\redfu.png" />
     <Content Include="Img\right.png" />
     <Content Include="Img\userimg.png" />
-    <Content Include="Img\UserImg\461893F4B4A36AD80ECB9BC17D94FE0F.jpg" />
-    <Content Include="Img\UserImg\5b876ab47160c232.jpg!200x200.jpg" />
+    <Content Include="Img\UserImg\5b82267470119292.png" />
+    <Content Include="Img\UserImg\5bc15f7159342991.jpeg" />
+    <Content Include="Img\UserImg\lanse.jpg" />
     <Content Include="Img\UserImg\moren.png" />
+    <Content Include="Img\UserImg\zhuzhu.jpg" />
     <Content Include="Img\wechat.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
