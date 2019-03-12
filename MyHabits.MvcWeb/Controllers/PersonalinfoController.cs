@@ -15,6 +15,16 @@ namespace MyHabits.MvcWeb.Controllers
         // GET: Personalinfo
         public ActionResult Personalinfo()
         {
+            if (Session["UserInfo"] != null)
+            {
+                ViewBag.IsLogin = true;
+                ViewBag.logID = (Session["UserInfo"] as UserEntity).ID;
+            }
+            else
+            {
+                ViewBag.IsLogin = false;
+                ViewBag.logID = "";
+            }
             return View();
         }
 

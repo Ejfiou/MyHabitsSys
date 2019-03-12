@@ -6,6 +6,19 @@
 
     $('#imgWaiting').hide();
 
+
+    //检查是否登录
+    var logID = $('#logID').val();
+    if (logID != "") {
+        $(".loginpage").hide();
+        $("#mask").css("display", "none");//遮罩隐藏
+        $("#nav-log").addClass("disp");
+        $("#nav-tx").removeClass("disp");
+        var href = $("#personbtn").attr("href");
+        $("#personbtn").attr("href", href + "?id=" + logID);
+        console.log($("#personbtn").attr("href"));  
+    } 
+
     $('#UserName').on('change', function () {
         $.ajax({
             url: '/WebService1.asmx/IsLoginIdRepeat',

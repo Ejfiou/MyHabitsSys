@@ -127,10 +127,22 @@
         </form>
 
     </div>
-    <div id="color">
-        <div id="red" class="circular"><img src="~/Img/redfu.png"></div>
-        <div id="green" class="circular"><img src="~/Img/greenfu.png"></div>
-        <div id="blue" class="circular"><img src="~/Img/bluefu.png"></div>
-    </div>
+<div id="color">
+    <div id="red" class="circular"><img src="~/Img/redfu.png"></div>
+    <div id="green" class="circular"><img src="~/Img/greenfu.png"></div>
+    <div id="blue" class="circular"><img src="~/Img/bluefu.png"></div>
+</div>
+
+@{
+    if (ViewBag.IsLogin??false)
+    {
+        <input type="hidden" id="logID" value="@ViewBag.logID" />
+    }
+    else
+    {
+        <input type="hidden" id="logID" value="" />
+    }
+}
+
     @RenderBody()
 </body>
