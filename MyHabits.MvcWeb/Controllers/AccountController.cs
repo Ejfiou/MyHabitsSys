@@ -18,6 +18,17 @@ namespace MyHabits.MvcWeb.Controllers
         public ActionResult Login()
         {
             //var user = bll.GetUserInfo();
+
+            if (Session["UserInfo"] != null)
+            {
+                ViewBag.IsLogin = true;
+                ViewBag.logID = (Session["UserInfo"] as UserEntity).ID;
+            }
+            else
+            {
+                ViewBag.IsLogin = false;
+                ViewBag.logID = "";
+            }
             return View();
         }
         /// <summary>
@@ -41,6 +52,8 @@ namespace MyHabits.MvcWeb.Controllers
                 Session["UserInfo"] = null;
                 return Json(new AjaxResult() { success = false, msg = "用户名或密码错误" });
             }
+
+            
         }
 
 
