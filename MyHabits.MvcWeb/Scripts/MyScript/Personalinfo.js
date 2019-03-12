@@ -4,6 +4,7 @@
 
 function doload() {
     MyUserInfo();
+    userbtn();
    $('#filed').change(function(){
 //获取input file的files文件数组;
 //$('#filed')获取的是jQuery对象，.get(0)转为原生对象;
@@ -41,19 +42,29 @@ function MyUserInfo() {
         } else {
             $("#bigimg").attr("src", "~/Img/UserImg/moren.png");
         }
-        $("#userEmail").text(res.data[0].userEmail);
-        $("#nickName").val(res.data[0].nickName);
-        //$("#userQQ").attr("value", res.data[0].nickName);
-        //$("#userAge").val(res.data[0].userAge);
-        $("#userAge").val(20);
-        $("#userSex").val(1);
-        console.log($("#userSex").val());
-        //$("#userQQ").val(res.data[0].userQQ);
-        $("#userQQ").val("dsdd");
-        $("#userQQ").attr("value", "111");
-        document.getElementById("userQQ").value = "值";
-        console.log("qq:"+$("#userQQ").val());
-        $("#userPhone").val(res.data[0].userPhone);
-        console.log($("#userPhone").val());
+        $("#userEmail").text(res.data[0].userEmail);//邮箱
+        $("#nickName").val(res.data[0].nickName);//昵称
+        $("#userAge").val(res.data[0].userAge);//年龄
+        $("#userSex").val(res.data[0].userSex);//性别
+        $("#userQQQ").val(res.data[0].userQQ);//QQ
+        $("#userPhone").val(res.data[0].userPhone);//手机号
+    });
+}
+
+function userbtn() {
+    $("#userbtn").click(function () {
+        var userEmail = $("#userEmail").text();
+        var nickName = $("#nickName").val();
+        var userAge = parseInt($("#userAge").val());
+        var userSex = $("#userSex").val();
+        var userQQ = $("#userQQQ").val();
+        var userPhone = $("#userPhone").val();
+        console.log(userEmail + "类型：" + typeof (userEmail));
+        console.log(nickName + "类型：" + typeof (nickName));
+        console.log(userAge + "类型：" + typeof (userAge));
+        console.log(userSex + "类型：" + typeof (userSex));
+        console.log(userPhone + "类型：" + typeof (userPhone));
+        console.log(userQQ + "类型：" + typeof (userQQ));
+        
     });
 }

@@ -45,10 +45,10 @@ namespace MyHabits.DataEntity
         public string userStatus { get; set; }
 
         [DataMember]
-        public int userQQ { get; set; }
+        public string userQQ { get; set; }
 
         [DataMember]
-        public int userPhone { get; set; }
+        public string userPhone { get; set; }
 
         
         [DataMember]
