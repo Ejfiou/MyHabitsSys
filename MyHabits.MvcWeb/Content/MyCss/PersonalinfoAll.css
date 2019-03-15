@@ -3,6 +3,7 @@
     height: 100%;
     background: #f5f5f5;
 }
+
 .share_personal {
     width: 960px;
     height: 900px;
@@ -125,10 +126,9 @@
 .share_personal input {
     width: 200px;
     height: 25px;
+    border: 1px solid #e9e9e9;
     border-radius: 5px;
-    border: 1px solid #e6e6e6;
     font-size: 13px;
-   
 }
 .share_personal select:focus,
 .share_personal input:focus {
@@ -140,18 +140,26 @@
     border-radius:5px;
 }
 .infobtn {
-    position:absolute;
-    left:450px;
-    top:200px;
-    width: 90px!important;
-    height: 40px!important;
-    background: #aee076;
+    position: absolute;
+    left: 450px;
+    top: 200px;
+    width: 90px !important;
+    height: 40px !important;
+    background: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    transition: all 0.2s;
 }
-.share_right_con2 {
-    padding-top: 80px;
-    /*background:#c22dca;*/
-    position: relative;
-}
+    .infobtn:hover {
+        background: var(--main-color);
+        color: #fff;
+        cursor:pointer;
+    }
+    .share_right_con2 {
+        padding-top: 80px;
+        /*background:#c22dca;*/
+        position: relative;
+    }
 .share_right_con3{
     /*background:#cb3d3d;*/
     position:relative;
@@ -171,5 +179,12 @@
 }
 .pswbtn {
     top: 150px;
-    background:#cbd310;
+    border: 1px solid var(--main-color);
+}
+.td_img img{
+    width:30px;
+    height:30px;
+}
+#userbtn, #psdbtn, #photobtn {
+    border: 1px solid var(--main-color);
 }

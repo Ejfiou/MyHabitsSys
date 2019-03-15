@@ -16,6 +16,22 @@ namespace MyHabits.MvcWeb.Controllers
         public ActionResult PublishHeal()
 
         {
+            if (Session["UserInfo"] != null)
+            {
+                ViewBag.IsLogin = true;
+                ViewBag.logID = (Session["UserInfo"] as UserEntity).ID;
+                ViewBag.logImg = (Session["UserInfo"] as UserEntity).userImg;
+                ViewBag.logStatus = (Session["UserInfo"] as UserEntity).userStatus;
+            }
+            else
+            {
+                ViewBag.IsLogin = false;
+                ViewBag.logID = "";
+                ViewBag.logImg = "";
+                ViewBag.logStatus = "";
+                return RedirectToRoute(new { controller = "HomePage", action = "HomePage" });
+
+            }
             return View();
         }
 

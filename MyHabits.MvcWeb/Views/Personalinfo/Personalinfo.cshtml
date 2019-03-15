@@ -43,7 +43,7 @@
                     <tbody>
                         <tr>
                             <td class="admin_text">电子邮箱:</td>
-                            <b><td class="data_right" id="userEmail">613149780@qq.com</td></b>
+                            <td class="data_right" ><b><span id="MyuserEmail"> </span></b></td>
                         </tr>
                         <tr>
                             <td class="admin_text">昵称:</td>
@@ -84,15 +84,27 @@
                     <tbody>
                     <tr>
                         <td class="admin_text">原密码:</td>
-                        <td class="data_right"><input type="text" /></td>
+                        <td class="data_right"><input type="password" id="OldPsd"/></td>
+                        <td class="td_img">
+                            <img src="~/Img/yes.png" class="yes disp" />
+                            <img src="~/Img/no.png" class="no disp" />
+                        </td>
                     </tr>
                     <tr>
                         <td class="admin_text">新密码:</td>
-                        <td class="data_right"><input type="text" /></td>
+                        <td class="data_right"><input type="password" id="Newpsd" /></td>
+                        <td class="td_img">
+                            <img src="~/Img/yes.png" class="yes disp"/>
+                            <img src="~/Img/no.png" class="no disp"/>
+                        </td>
                     </tr>
                     <tr>
                         <td class="admin_text">确认密码:</td>
-                        <td class="data_right"><input type="text" /></td>
+                        <td class="data_right"><input type="password" id="Newpsd2" /></td>
+                        <td class="td_img">
+                            <img src="~/Img/yes.png" class="yes disp" />
+                            <img src="~/Img/no.png" class="no disp" />
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -130,8 +142,16 @@
             uploadProgress: function (event, position, total, percentComplete) {
               
             },
-            success: function () {
-
+            success: function (res) {
+                if (res.success) {
+                    var url = location.search;
+                    console.log(url);
+                    var id = parseInt(url.substr(4));
+                    window.location.href = "/Jumppage/Jumppage?id=" + id + "?page=/Personalinfo/Personalinfo" + "?msg=3";
+                } else {
+                    alert('失败');
+                }
+                
             },
             complete: function (xhr) {
              

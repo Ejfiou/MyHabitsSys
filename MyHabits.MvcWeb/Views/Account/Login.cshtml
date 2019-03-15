@@ -33,10 +33,10 @@
                 <li id="registerbtn">注册</li>
             </ul>
         </div>
-        <div class="nav-right nav-login disp" id="nav-tx">
-            <ul id="imgul-tx">
+        <div class="nav-right nav-login disp" id="user_pt">
+            <ul class="imgul-tx">
                 <li class="imgli-tx">
-                    <img class="img-tx"id="head_rightimg" src="~/img/UserImg/moren.png" />
+                    <img class="img-tx head_rightimg"  src="~/img/UserImg/moren.png" />
                 </li>
                 <li class="imgli-tx">
                     <img class="img-arrow" src="~/Img/arrow-ios-downward-o.png" />
@@ -44,12 +44,28 @@
                 <div class="drop-down ">
                     <ul>
                         <li><a href="~/Personalinfo/Personalinfo" id="personbtn">个人信息</a></li>
-                        <li><a href="#" >我的問卷</a></li>
-                        <li><a href="#" >退出</a></li>
+                        <li><a href="#">我的問卷</a></li>
+                        <li class="quitbtn">退出</li>
                     </ul>
                 </div>
             </ul>
-
+        </div>
+        <div class="nav-right nav-login disp" id="user_admin">
+            <ul class="imgul-tx">
+                <li class="imgli-tx">
+                    <img class="img-tx head_rightimg"  src="~/img/UserImg/moren.png" />
+                </li>
+                <li class="imgli-tx">
+                    <img class="img-arrow" src="~/Img/arrow-ios-downward-o.png" />
+                </li>
+                <div class="drop-down ">
+                    <ul>
+                        <li><a href="~/Personalinfo/Personalinfo" id="personbtn1">个人信息</a></li>
+                        <li><a href="#">我是管理员</a></li>
+                        <li class="quitbtn">退出</li>
+                    </ul>
+                </div>
+            </ul>
         </div>
         <div class="bottom-nav"></div>
     </nav>
@@ -65,7 +81,7 @@
             </p>
 
             <div class="head-img">
-                <img src="~/Img/UserImg/moren.png">
+                <img id="loginimg" src="~/Img/UserImg/moren.png">
             </div>
         </div>
         <form action="">
@@ -127,22 +143,26 @@
         </form>
 
     </div>
-<div id="color">
-    <div id="red" class="circular"><img src="~/Img/redfu.png"></div>
-    <div id="green" class="circular"><img src="~/Img/greenfu.png"></div>
-    <div id="blue" class="circular"><img src="~/Img/bluefu.png"></div>
-</div>
+    <div id="color">
+        <div id="red" class="circular"><img src="~/Img/redfu.png"></div>
+        <div id="green" class="circular"><img src="~/Img/greenfu.png"></div>
+        <div id="blue" class="circular"><img src="~/Img/bluefu.png"></div>
+    </div>
 
-@{
-    if (ViewBag.IsLogin??false)
-    {
-        <input type="hidden" id="logID" value="@ViewBag.logID" />
+    @{
+        if (ViewBag.IsLogin ?? false)
+        {
+            <input type="hidden" id="logID" value="@ViewBag.logID" />
+            <input type="hidden" id="logImg" value="@ViewBag.logImg" />
+            <input type="hidden" id="logStatus" value="@ViewBag.logStatus" />
+        }
+        else
+        {
+            <input type="hidden" id="logID" value="" />
+            <input type="hidden" id="logImg" value="" />
+            <input type="hidden" id="logStatus" value="" />
+        }
     }
-    else
-    {
-        <input type="hidden" id="logID" value="" />
-    }
-}
 
     @RenderBody()
 </body>

@@ -10,9 +10,9 @@ namespace MyHabits.Business
     public class BllAccount
     {
         DalAccount dal = new DalAccount();
-        public List<UserEntity> GetUserInfo(UserEntity query)
+        public List<UserEntity> GetUserInfo(UserEntity query,bool isLogin = false)
         {
-            return dal.GetUserInfo(query);
+            return dal.GetUserInfo(query,isLogin);
         }
 
         public bool UserRegist(UserEntity user)
@@ -20,18 +20,33 @@ namespace MyHabits.Business
             return dal.UserRegist(user);
         }
 
-        public bool UpdateUserImg(UserEntity user)
+        public bool UpdateUser(UserEntity user)
         {
-            return dal.UpdateUserImg(user);
+            return dal.UpdateUser(user);
+        }
+
+        public bool UpdatePwd(UserEntity user)
+        {
+            return dal.UpdatePwd(user);
         }
 
         public UserEntity GetUserById(int id)
         {
             return dal.GetUserById(id);
         }
-        public List<UserEntity> SetMyuserInfo(UserEntity user)
+        public List<UserEntity> GetMyuserInfo(UserEntity user)
         {
-            return dal.SetMyuserInfo(user);
+            return dal.GetMyuserInfo(user);
         }
+        public List<UserEntity> UserIMg(UserEntity user)
+        {
+            return dal.UserIMg(user);
+        }
+
+        public List<UserEntity> UserPsd(UserEntity user)
+        {
+            return dal.UserPsd(user);
+        }
+
     }
 }

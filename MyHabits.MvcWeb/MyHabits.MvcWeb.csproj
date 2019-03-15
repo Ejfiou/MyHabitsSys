@@ -127,6 +127,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\HomepageInfoController.cs" />
+    <Compile Include="Controllers\JumppageController.cs" />
     <Compile Include="Controllers\PersonalinfoController.cs" />
     <Compile Include="Controllers\PublishHealController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,6 +164,7 @@
     <Content Include="Img\greenfu.png" />
     <Content Include="Img\headimg.png" />
     <Content Include="Img\left.png" />
+    <Content Include="Img\no.png" />
     <Content Include="Img\pwdimg.png" />
     <Content Include="Img\QQ.jpg" />
     <Content Include="Img\redfu.png" />
@@ -174,12 +176,14 @@
     <Content Include="Img\UserImg\moren.png" />
     <Content Include="Img\UserImg\zhuzhu.jpg" />
     <Content Include="Img\wechat.jpg" />
+    <Content Include="Img\yes.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\juery-form.js" />
     <Content Include="Scripts\MyScript\Carousel.js" />
     <Content Include="Scripts\MyScript\HomePage.js" />
     <Content Include="Scripts\MyScript\HomePageInfo.js" />
+    <Content Include="Scripts\MyScript\Jumppage.js" />
     <Content Include="Scripts\MyScript\Personalinfo.js" />
     <Content Include="Scripts\MyScript\PublishHeal.js" />
     <Content Include="Scripts\Personalinfo.js" />
@@ -212,6 +216,7 @@
     <Content Include="Views\PublishHeal\PublishHeal.cshtml" />
     <Content Include="Views\HomepageInfo\HomepageInfo.cshtml" />
     <Content Include="Views\Personalinfo\Personalinfo.cshtml" />
+    <Content Include="Views\Jumppage\Jumppage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

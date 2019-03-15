@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
 }
-input, textarea, select {
+input, textarea, select{
     outline:none;
 }
 /*主体样式*/
@@ -255,7 +255,7 @@ input {
     width: 40px;
     height: 40px;
 }
-#head_rightimg{
+.head_rightimg{
     border-radius:40px;
 }
 
@@ -320,6 +320,6 @@ input {
         background:darkgray;
     }
 
-#imgul-tx .drop-down ul li a{
+.imgul-tx .drop-down ul li a{
     width: 100px !important;
 }

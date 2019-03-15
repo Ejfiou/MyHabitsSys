@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class HomepageInfoController : BaseController
+    public class JumppageController : Controller
     {
-        // GET: HomepageInfo
-        public ActionResult HomepageInfo()
+        // GET: Jumppage
+        public ActionResult Jumppage()
         {
             if (Session["UserInfo"] != null)
             {
@@ -25,7 +25,7 @@ namespace MyHabits.MvcWeb.Controllers
                 ViewBag.logID = "";
                 ViewBag.logImg = "";
                 ViewBag.logStatus = "";
-             
+                return RedirectToRoute(new { controller = "HomePage", action = "HomePage" });
 
             }
             return View();

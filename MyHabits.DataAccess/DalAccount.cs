@@ -10,7 +10,7 @@ namespace MyHabits.DataAccess
 {
     public class DalAccount
     {
-        public List<UserEntity> GetUserInfo(UserEntity query)
+        public List<UserEntity> GetUserInfo(UserEntity query,bool isLogin = false)
         {
             string sql = "select * from [userinfo] where 1=1";
 
@@ -20,7 +20,15 @@ namespace MyHabits.DataAccess
                 sql += " and UserName = @UserName ";
                 p.Add("@UserName", query.userName);
             }
-            if (!string.IsNullOrEmpty(query.password))
+
+           
+
+            if (isLogin)
+            {
+                sql += " and password = @password ";
+                p.Add("@password", query.password);
+            }
+            else  if(!string.IsNullOrEmpty(query.password))
             {
                 sql += " and password = @password ";
                 p.Add("@password", query.password);
@@ -46,12 +54,17 @@ namespace MyHabits.DataAccess
             return flag>0;
         }
 
-        public bool UpdateUserImg(UserEntity user)
+        public bool UpdateUser(UserEntity user)
+        {
+            return DbHelper.Update(user); 
+        }
+
+
+        public bool UpdatePwd(UserEntity user)
         {
             return DbHelper.Update(user);
         }
-
-        public List<UserEntity> SetMyuserInfo(UserEntity user)
+        public List<UserEntity> GetMyuserInfo(UserEntity user)
         {
             string sql = "select * from userinfo where  1=1";
             var p = new DynamicParameters();
@@ -61,6 +74,33 @@ namespace MyHabits.DataAccess
             var Myuserinfo = DbHelper.Query<UserEntity>(sql, p);
 
             return Myuserinfo;
+        }
+        public List<UserEntity> UserIMg(UserEntity user)
+        {
+            string sql = "select * from userinfo where  1=1";
+            var p = new DynamicParameters();
+            if (!string.IsNullOrEmpty(user.userName))
+            {
+                sql += " and UserName = @UserName ";
+                p.Add("@UserName", user.userName);
+            }
+            var MyUserIMg = DbHelper.Query<UserEntity>(sql, p);
+            return MyUserIMg;
+        }
+        
+         public List<UserEntity> UserPsd(UserEntity user)
+        {
+            string sql = "select * from userinfo where  1=1";
+            var p = new DynamicParameters();
+            if (!string.IsNullOrEmpty(user.password))
+            {
+                sql += " and password = @password ";
+                p.Add("@password", user.password);
+                sql += " and ID = @ID ";
+                p.Add("@ID", user.ID);
+            }
+            var MyUserPsd = DbHelper.Query<UserEntity>(sql, p);
+            return MyUserPsd;
         }
     }
 }

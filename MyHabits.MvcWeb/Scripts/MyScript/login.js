@@ -1,4 +1,5 @@
 ﻿$(function () {
+    clearinp();
     color();
     navbar();
     loginbtnopen();
@@ -9,15 +10,50 @@
 
     //检查是否登录
     var logID = $('#logID').val();
+    var logImg = $('#logImg').val();
+    var logStatus = $('#logStatus').val();
+    console.log(logStatus);
+    console.log(typeof(logStatus));
     if (logID != "") {
         $(".loginpage").hide();
         $("#mask").css("display", "none");//遮罩隐藏
         $("#nav-log").addClass("disp");
-        $("#nav-tx").removeClass("disp");
+        $("#user_pt").removeClass("disp");
         var href = $("#personbtn").attr("href");
         $("#personbtn").attr("href", href + "?id=" + logID);
-        console.log($("#personbtn").attr("href"));  
-    } 
+        var href1 = $("#personbtn1").attr("href");
+        $("#personbtn1").attr("href", href1 + "?id=" + logID);
+        console.log($("#personbtn").attr("href"));
+        if (logImg != "") {
+            $(".head_rightimg").attr("src", logImg);
+        } else {
+            $(".head_rightimg").attr("src", "/img/UserImg/moren.png");
+        }
+        if (logStatus == 1) {
+            $("#user_admin").removeClass("disp");
+            $("#user_pt").addClass("disp");
+        } else {
+            $("#user_pt").removeClass("disp");
+            $("#user_admin").addClass("disp");
+        }
+    } else {
+        $("#nav-log").removeClass("disp");
+    }
+    //用户名按钮失去焦点时
+    $('#loginName').blur(function () {
+        var userName = $("#loginName").val();
+        $.post('/Account/UserIMg', {
+            userName: userName,
+        }, function (res) {
+            if (res.success) {
+                $("#loginimg").attr("src", res.msg );
+            }
+            else {
+                $("#loginimg").attr("src", "/Img/UserImg/moren.png");
+            }
+        });
+        return false;
+    });
 
     $('#UserName').on('change', function () {
         $.ajax({
@@ -60,12 +96,20 @@
                 $(".loginpage").hide();
                 $("#mask").css("display", "none");//遮罩隐藏
                 $("#nav-log").addClass("disp");
-                $("#nav-tx").removeClass("disp");
-                console.log(res.data[0].ID);
+                if (res.data[0].userStatus == 1) {
+                    $("#user_admin").removeClass("disp");
+                    $("#user_pt").addClass("disp");
+                } else {
+                    $("#user_pt").removeClass("disp");
+                    $("#user_admin").addClass("disp");
+                }
+                console.log(res.data[0]);
                 var href = $("#personbtn").attr("href");
                 $("#personbtn").attr("href", href + "?id=" + res.data[0].ID);
-                console.log($("#personbtn").attr("href"));  
-                $("#head_rightimg").attr("src", res.data[0].userImg);
+                console.log($("#personbtn").attr("href"));
+                var href1 = $("#personbtn1").attr("href");
+                $("#personbtn1").attr("href", href1 + "?id=" + res.data[0].ID);
+                $(".head_rightimg").attr("src", res.data[0].userImg);
             }
             else {
                 //登录失败
@@ -85,13 +129,16 @@
         var userQQ = $("#userQQ").val();
         var emailCode = $("#Vcode").val();
         $.post('/Account/Regist', {
-
             userName: UserName,
             password: password,
+            userAge: 1,
+            userSex: 0,
             userEmail: userEmail,
+            userStatus: 0,
             userQQ: userQQ,
+            userPhone:0,
             emailCode: emailCode,
-            userStatus:0
+            
         }, function (res) {
             if (res.success) {
                 $("#Vcode").nextAll("span:first").css("display", "inline");
@@ -106,9 +153,34 @@
         return false;
     });
 
-
-
+    $(".quitbtn").click(function () {
+        $.post('/Account/Userquit', {
+        }, function (res) {
+            console.log(res.msg);
+            location.reload(true);
+        });
+    });
+    
+    
 });
+//清空登录注册input框的内容
+function clearinp() {
+    $("#UserName").val("");
+    $("#password1").val("");
+    $("#password2").val("");
+    $("#userQQ").val("");
+    $("#userEmail").val("");
+    $("#Vcode").val("");
+    $("#loginName").val("");
+    $("#loginPwd").val("");
+    $("#loginimg").attr("src", "/Img/UserImg/moren.png");
+    $(".spantrue").css("display", "none");
+    $(".spanfalse").css("display", "none");
+    $('#imgWaiting').hide();
+}
+
+
+
 //导航栏
 function navbar() {
     $('#navbar .nav ul li').mouseover(function () {
@@ -124,7 +196,7 @@ function navbar() {
             left: '0px'
         });
     });
-    $('#imgul-tx').hover(function () {
+    $('.imgul-tx').hover(function () {
         console.log(111);
         $('.img-arrow').css("transform", "rotate(180deg)");
         $('.drop-down').stop().slideDown();
@@ -187,6 +259,7 @@ function registerbtn() {
     function closelogin() {
         var $closelogin = $(".closelogin");//右上方X按钮
         $closelogin.click(function () {
+            clearinp();
             console.log('1111');
             $(this).parent().hide();
             $mask.css("display", "none");//遮罩隐藏
@@ -247,11 +320,13 @@ function switchpage() {
     var $registerSkip = $("#registerSkip");//橙色立即登陆
     // if($(".loginpage").css("display")!="none"){
     $loginSkip.click(function () {
+        clearinp();
         $loginpage.css("marginTop", "-250px");//登陆框回到原来的位置
         registerbtn();
     });
     // }else if($(".registerpage").css("display")!="none"){
     $registerSkip.click(function () {
+        clearinp();
         $registerpage.css("marginTop", "-250px");//登陆框回到原来的位置
         loginbtn();
     });
@@ -311,7 +386,7 @@ function verif() {
             code.addClass("graybtndis");
             code.text("(" + --time + ")秒后重新获取");
             if (time == 0) {
-                code.removeClassClass("graybtndis");
+                code.removeClass("graybtndis");
                 code.attr("disabled", false).text("重新获取验证码");
                 clearInterval(set);
             }

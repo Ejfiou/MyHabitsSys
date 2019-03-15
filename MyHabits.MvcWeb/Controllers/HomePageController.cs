@@ -16,11 +16,17 @@ namespace MyHabits.MvcWeb.Controllers
             {
                 ViewBag.IsLogin = true;
                 ViewBag.logID = (Session["UserInfo"] as UserEntity).ID;
+                ViewBag.logImg = (Session["UserInfo"] as UserEntity).userImg;
+                ViewBag.logStatus = (Session["UserInfo"] as UserEntity).userStatus;
             }
             else
             {
                 ViewBag.IsLogin = false;
                 ViewBag.logID = "";
+                ViewBag.logImg = "";
+                ViewBag.logStatus = "";
+             
+
             }
             return View();
         }

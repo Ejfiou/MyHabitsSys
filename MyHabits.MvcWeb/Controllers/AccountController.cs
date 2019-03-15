@@ -23,11 +23,17 @@ namespace MyHabits.MvcWeb.Controllers
             {
                 ViewBag.IsLogin = true;
                 ViewBag.logID = (Session["UserInfo"] as UserEntity).ID;
+                ViewBag.logImg = (Session["UserInfo"] as UserEntity).userImg;
+                ViewBag.logStatus = (Session["UserInfo"] as UserEntity).userStatus;
             }
             else
             {
                 ViewBag.IsLogin = false;
                 ViewBag.logID = "";
+                ViewBag.logImg = "";
+                ViewBag.logStatus = "";
+                return RedirectToRoute(new { controller = "HomePage", action = "HomePage" });
+
             }
             return View();
         }
@@ -41,9 +47,10 @@ namespace MyHabits.MvcWeb.Controllers
 
             UserEntity pub1 = new UserEntity();
 
-            List<UserEntity> listpub = bll.GetUserInfo(user);
+            List<UserEntity> listpub = bll.GetUserInfo(user,true);
             if (listpub.Count>0)
             {
+                
                 Session["UserInfo"] = listpub[0];
                 return Json(new AjaxResult() { success = true, msg = "登录成功" ,data = listpub });
             }
@@ -91,8 +98,40 @@ namespace MyHabits.MvcWeb.Controllers
 
             }
         }
+        public JsonResult UserIMg(UserEntity user)
+        {
 
-        public void GetEmailCode(string emailAddress)
+            UserEntity pub1 = new UserEntity();
+
+            List<UserEntity> listpub = bll.UserIMg(user);
+            if (listpub.Count > 0)
+            {
+
+
+                return Json(new AjaxResult() { success = true,msg= listpub[0].userImg });
+            }
+            else
+            {
+                Session["UserInfo"] = null;
+                return Json(new AjaxResult() { success = false, msg = "用户名不存在" });
+            }
+
+
+        }
+        //退出按钮
+        public JsonResult Userquit()
+        {
+            if (Session["UserInfo"] != null)
+            { 
+
+                Session["UserInfo"] = null;
+            return Json(new AjaxResult() { success = true, msg = "退出成功" });
+            }
+            else { 
+            return Json(new AjaxResult() { success = true, msg = "退出失败" });
+            }
+        }
+            public void GetEmailCode(string emailAddress)
         {
             //生成四位随机数做验证码
             Random r = new Random();
