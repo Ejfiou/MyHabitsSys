@@ -130,6 +130,7 @@
     <Compile Include="Controllers\JumppageController.cs" />
     <Compile Include="Controllers\PersonalinfoController.cs" />
     <Compile Include="Controllers\PublishHealController.cs" />
+    <Compile Include="Controllers\PublishQuestionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,6 +150,7 @@
     <Content Include="Content\MyCss\login.css" />
     <Content Include="Content\MyCss\PersonalinfoAll.css" />
     <Content Include="Content\MyCss\PublishHeal.css" />
+    <Content Include="Content\MyCss\PublishQuestion.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -186,6 +188,7 @@
     <Content Include="Scripts\MyScript\Jumppage.js" />
     <Content Include="Scripts\MyScript\Personalinfo.js" />
     <Content Include="Scripts\MyScript\PublishHeal.js" />
+    <Content Include="Scripts\MyScript\PublishQuestion.js" />
     <Content Include="Scripts\Personalinfo.js" />
     <Content Include="WebService1.asmx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -217,6 +220,7 @@
     <Content Include="Views\HomepageInfo\HomepageInfo.cshtml" />
     <Content Include="Views\Personalinfo\Personalinfo.cshtml" />
     <Content Include="Views\Jumppage\Jumppage.cshtml" />
+    <Content Include="Views\PublishQuestion\PublishQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

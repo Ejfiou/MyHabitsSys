@@ -24,11 +24,7 @@
         var href1 = $("#personbtn1").attr("href");
         $("#personbtn1").attr("href", href1 + "?id=" + logID);
         console.log($("#personbtn").attr("href"));
-        if (logImg != "") {
-            $(".head_rightimg").attr("src", logImg);
-        } else {
-            $(".head_rightimg").attr("src", "/img/UserImg/moren.png");
-        }
+       
         if (logStatus == 1) {
             $("#user_admin").removeClass("disp");
             $("#user_pt").addClass("disp");
@@ -39,14 +35,23 @@
     } else {
         $("#nav-log").removeClass("disp");
     }
-    //用户名按钮失去焦点时
+    if (logImg != null) {
+        $(".head_rightimg").attr("src", logImg);
+    } else {
+        $(".head_rightimg").attr("src", "/img/UserImg/moren.png");
+    }
+    //用户名文本框失去焦点时
     $('#loginName').blur(function () {
         var userName = $("#loginName").val();
         $.post('/Account/UserIMg', {
             userName: userName,
         }, function (res) {
             if (res.success) {
-                $("#loginimg").attr("src", res.msg );
+                if (res.msg != null) {
+                    $("#loginimg").attr("src", res.msg);
+                } else {
+                    $("#loginimg").attr("src", "/Img/UserImg/moren.png");
+                }
             }
             else {
                 $("#loginimg").attr("src", "/Img/UserImg/moren.png");
@@ -67,12 +72,15 @@
             },
             success: function (data) {
                 if (data === 'True') {
-                    $('#result').html('用户名已存在');
-                    $('#btnReg').attr('disabled', true);
-                }
-                else {
+                    $('#result').html('*由字母、数字、_组成，非数字开头,4~17位');
                     $('#resulttrue').css("display", "inline");
                     $('#btnReg').attr('disabled', false);
+                    
+                }
+                else {
+                    $('#result').html('用户名已存在');
+                    $('#btnReg').attr('disabled', true);
+                    
                 }
             },
             complete: function () {
@@ -109,7 +117,11 @@
                 console.log($("#personbtn").attr("href"));
                 var href1 = $("#personbtn1").attr("href");
                 $("#personbtn1").attr("href", href1 + "?id=" + res.data[0].ID);
-                $(".head_rightimg").attr("src", res.data[0].userImg);
+                if (res.data[0].userImg != null) {
+                    $(".head_rightimg").attr("src", res.data[0].userImg);
+                } else {
+                    $(".head_rightimg").attr("src", "/img/UserImg/moren.png");
+                }
             }
             else {
                 //登录失败
@@ -143,6 +155,7 @@
             if (res.success) {
                 $("#Vcode").nextAll("span:first").css("display", "inline");
                 $("#Vcode").nextAll("span:last").css("display", "none");
+                location.reload();
             }
             else {
                 $("#Vcode").nextAll("span:first").css("display", "none");
