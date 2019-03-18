@@ -163,12 +163,15 @@
     <Content Include="Img\a5.png" />
     <Content Include="Img\arrow-ios-downward-o.png" />
     <Content Include="Img\bluefu.png" />
+    <Content Include="Img\clickimg.png" />
+    <Content Include="Img\delimg.png" />
     <Content Include="Img\greenfu.png" />
     <Content Include="Img\headimg.png" />
     <Content Include="Img\left.png" />
     <Content Include="Img\no.png" />
     <Content Include="Img\pwdimg.png" />
     <Content Include="Img\QQ.jpg" />
+    <Content Include="Img\radio.png" />
     <Content Include="Img\redfu.png" />
     <Content Include="Img\right.png" />
     <Content Include="Img\userimg.png" />

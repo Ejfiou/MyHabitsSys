@@ -14,8 +14,63 @@
 
 </head>
 <body>
-    <section>
-        <div id="Question_left"></div>
-        <div id="Question_right">111</div>
+    <section id="Question_session">
+        <div id="Question_left">
+            <div class="type_module">
+                <h3>选择题</h3>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />单选题</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />多选题</p>
+            </div>
+            <div class="type_module">
+                <h3>填空题</h3>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />填空题</p>
+            </div>
+            <div class="type_module">
+                <h3>个人信息</h3>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />姓名</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />手机</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />邮箱</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />性别</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />年龄</p>
+                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />QQ号</p>
+            </div>
+        </div>
+        <div id="Question_right">
+            <div class="right_content">
+                <!--问卷标题-->
+                <div class="survey_prefix_wrap">
+                    <div class="survey_title">
+                        <div class="title_content Dottedline" contenteditable="true">
+                            <p>问卷标题</p>
+                        </div>
+                    </div>
+                    <div class="survey_prefix">
+                        <div class="prefix_content Dottedline" contenteditable="true" placeholder="点击编辑欢迎语">
+                        </div>
+                    </div>
+                </div>
+                <!--内容为空时显示-->
+                @*<div class="question_null_tip">
+                    <img src="~/Img/clickimg.png" />&nbsp;&nbsp;点击题型即可添加
+                </div>*@
+                <div class="question_centent">
+                    <div class="q_title_wrap ">
+                        <div class="q_seq">1</div>
+                        <div class="radio_title Dottedline" contenteditable="true">
+                            <p>单选题</p>
+                        </div>
+                        <img src="~/Img/delimg.png"/>
+                    </div>
+                    <div class="q_centent_wrap">
+                        <div class="q_optionval">
+                            <div class="radio_centent_wrap Dottedline "contenteditable="true">
+                                <div class="radio_img"></div>
+                                <div class="radio_centent" >aaaa</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
