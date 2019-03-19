@@ -91,7 +91,7 @@
 }
 .Dottedline {
     height: 40px;
-    margin: 20px auto;
+    margin: 10px auto;
     border: 1px solid transparent;
     outline: none;
     border-radius: 4px;
@@ -119,10 +119,12 @@
     width: 100%;
     height: auto !important;
     background: #fff;
+    border: 2px solid transparent;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    box-sizing:border-box;
-    padding:10px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom:10px;
 }
 .q_title_wrap{
     width:90%;
@@ -145,25 +147,62 @@
     top:8px;
     left:30px;
 }
-.q_centent_wrap{
 
+
+.radio_centent_wrap {
+    width: 430px;
+    display: inline-block;
+    margin-left: 85px;
+    position: relative;
 }
 .radio_img {
     width: 14px;
     height: 14px;
     border-radius: 14px;
     border: 1px solid #aaaaaa;
-    background:#fff;
-    display:inline-block;
-    margin-top:5px;
-}
-.radio_centent_wrap{
-    width:430px;
-    display:inline-block;
-    margin-left:85px;
+    background: #fff;
+    display: inline-block;
+    position:absolute;
+    top:14px;
+    left:14px;
 }
 .radio_centent {
     width: 400px;
     display: inline-block;
-    line-height:40px;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    outline:none;
+}
+.q_optionval {
+    position: relative;
+}
+.q_optionval img {
+    width: 25px;
+    position:absolute;
+    top:16px;
+    left:570px;
+}
+.Q_option {
+    height: 40px;
+    margin: 5px 10px 0px 90px;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+    .Q_option:hover {
+        border: 1px dashed #808080;
+    }
+
+.Q_option_value:focus .Q_option {
+    border: 1px solid transparent;
+    background: rgba(128, 133, 144, .15);
+}
+.question_focus {
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+    border: solid 2px #2672ff;
+    outline: none;
+    margin: 24px 0;
 }

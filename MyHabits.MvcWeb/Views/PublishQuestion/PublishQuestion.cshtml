@@ -18,7 +18,7 @@
         <div id="Question_left">
             <div class="type_module">
                 <h3>选择题</h3>
-                <p class="type_item"><img class="type_img" src="~/Img/radio.png" />单选题</p>
+                <p class="type_item" id="radiobtn"><img class="type_img" src="~/Img/radio.png" />单选题</p>
                 <p class="type_item"><img class="type_img" src="~/Img/radio.png" />多选题</p>
             </div>
             <div class="type_module">
@@ -51,25 +51,75 @@
                 </div>
                 <!--内容为空时显示-->
                 @*<div class="question_null_tip">
-                    <img src="~/Img/clickimg.png" />&nbsp;&nbsp;点击题型即可添加
-                </div>*@
-                <div class="question_centent">
+            <img src="~/Img/clickimg.png" />&nbsp;&nbsp;点击题型即可添加
+        </div>*@
+                <div class="question_centent " tabindex="0">
                     <div class="q_title_wrap ">
                         <div class="q_seq">1</div>
                         <div class="radio_title Dottedline" contenteditable="true">
                             <p>单选题</p>
                         </div>
-                        <img src="~/Img/delimg.png"/>
+                        <img src="~/Img/delimg.png" class="disp" />
                     </div>
+                    <!--选项-->
                     <div class="q_centent_wrap">
                         <div class="q_optionval">
-                            <div class="radio_centent_wrap Dottedline "contenteditable="true">
-                                <div class="radio_img"></div>
-                                <div class="radio_centent" >aaaa</div>
+                            <div class="radio_centent_wrap Q_option">
+                                <div class="radio_img" contenteditable="false"></div>
+                                <div class="radio_centent Q_option_value" contenteditable="true">选项1</div>
                             </div>
+                            <img src="~/Img/delziimg.png" class="disp" />
                         </div>
                     </div>
+                    <!--选项结束-->
+                    <!--选项-->
+                    <div class="q_centent_wrap ">
+                        <div class="q_optionval">
+                            <div class="radio_centent_wrap Q_option">
+                                <div class="radio_img" contenteditable="false"></div>
+                                <div class="radio_centent Q_option_value" contenteditable="true">选项1</div>
+                            </div>
+                            <img src="~/Img/delziimg.png" class="disp" />
+                        </div>
+                    </div>
+                    <!--选项结束-->
                 </div>
+
+
+                <!--单选框-->
+                <div class="question_centent " tabindex="0">
+                    <div class="q_title_wrap ">
+                        <div class="q_seq">1</div>
+                        <div class="radio_title Dottedline" contenteditable="true">
+                            <p>单选题</p>
+                        </div>
+                        <img src="~/Img/delimg.png" class="disp" />
+                    </div>
+                    <!--选项-->
+                    <div class="q_centent_wrap">
+                        <div class="q_optionval">
+                            <div class="radio_centent_wrap Q_option">
+                                <div class="radio_img" contenteditable="false"></div>
+                                <div class="radio_centent Q_option_value" contenteditable="true">选项1</div>
+                            </div>
+                            <img src="~/Img/delziimg.png" class="disp" />
+                        </div>
+                    </div>
+                    <!--选项结束-->
+                    <!--选项-->
+                    <div class="q_centent_wrap ">
+                        <div class="q_optionval">
+                            <div class="radio_centent_wrap Q_option">
+                                <div class="radio_img" contenteditable="false"></div>
+                                <div class="radio_centent Q_option_value" contenteditable="true">选项1</div>
+                            </div>
+                            <img src="~/Img/delziimg.png" class="disp" />
+                        </div>
+                    </div>
+                    <!--选项结束-->
+                </div>
+                <!--单选框结束-->
+                <div id="footend">这里是结束</div>
             </div>
         </div>
     </section>

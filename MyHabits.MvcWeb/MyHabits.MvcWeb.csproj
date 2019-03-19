@@ -165,6 +165,7 @@
     <Content Include="Img\bluefu.png" />
     <Content Include="Img\clickimg.png" />
     <Content Include="Img\delimg.png" />
+    <Content Include="Img\delziimg.png" />
     <Content Include="Img\greenfu.png" />
     <Content Include="Img\headimg.png" />
     <Content Include="Img\left.png" />
