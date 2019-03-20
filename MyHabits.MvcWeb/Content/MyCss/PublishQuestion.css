@@ -166,6 +166,16 @@
     top:14px;
     left:14px;
 }
+.check_img {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #aaaaaa;
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
 .radio_centent {
     width: 400px;
     display: inline-block;
@@ -205,4 +215,23 @@
     border: solid 2px #2672ff;
     outline: none;
     margin: 24px 0;
+}
+.addoption_centent{
+    position:relative;
+}
+.addoption{
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    position:relative;
+    left:100px;
+    padding-left:50px;
+    line-height:40px;
+    border-radius:4px;
+}
+.addoption img{
+    position:absolute;
+    top:10px;
+    left:8px;
+    width:24px;
 }
