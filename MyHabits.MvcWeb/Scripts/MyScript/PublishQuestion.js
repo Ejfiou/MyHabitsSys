@@ -12,7 +12,7 @@ function doload() {
     cententhover();//模块选中时事件
     optionfoucus();//选项focus和hover事件
     //addoptionfocus();//添加选项按钮事件
-    
+    cententindex();
   
 }
 function nulltip() {
@@ -24,18 +24,16 @@ function nulltip() {
         $(".question_null_tip").addClass("disp");
     }
 }
-//function optinonindex() {
-//    var $question_centent = $(".question_centent");
-//    var $Q_option_value = $(".Q_option_value");
-//    for (var i = 0; i < $question_centent.length; i++) {
-//        var optionnum = $($question_centent[i]).children(".q_centent_wrap").length
-//        for (var j = 0; j < optionnum; j++) {
-//            $($Q_option_value[j]).text("选项" + j);
-//        };
+function cententindex() {
+    var $question_centent = $(".question_centent");
+    var $Q_option_value = $(".Q_option_value");
+    for (var i = 0; i < $question_centent.length; i++) {
+        var optionnum = $($question_centent[i]).children(".q_centent_wrap").length
+        $($question_centent[i]).find(".q_seq").text(i+1);
+        console.log($($question_centent[i]).find(".q_seq").text(i + 1));
         
-//    };
-//    continue;
-//}
+    };
+}
 function deloption(){
     var deloption = $(".deloption");
    // console.log(deloption);
@@ -175,6 +173,7 @@ function cententclick() {
             cententimg.click(function () {
                 $centent.remove();
                 nulltip();
+                cententindex();
             })
         } else {
           //  console.log("没有");
@@ -189,10 +188,10 @@ function radiobtn() {
         var index = $(".question_centent").length + 1;
         //$("#footend").before(radioinfo1);
         var radioinfo1 = $(
-            '<div class="question_centent " tabindex="0">\n' +
+            '<div class="question_centent q_radio_val" tabindex="0">\n' +
             '<div class="q_title_wrap ">\n' +
             '<div class="q_seq">1</div>\n' +
-            '<div class="radio_title Dottedline" contenteditable="true"><p>单选题</p></div>\n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_title">单选题</p></div>\n' +
             '<img src="../Img/delimg.png" class="disp" />\n' +
             '</div >\n' +
             '<div class="q_centent_wrap">\n' +
@@ -217,8 +216,9 @@ function radiobtn() {
             '</div>');
         $("#footend").before(radioinfo1);
         //$("#footend").prev().text();
-        $("#footend").prev().find(".q_seq").text(index);
-        console.log($("#footend").prev().find(".q_seq").text(index));
+        //$("#footend").prev().find(".q_seq").text(index);
+        //console.log($("#footend").prev().find(".q_seq").text(index));
+        cententindex();
         nulltip();
         addoptionfocus();
         deloption();
@@ -235,10 +235,10 @@ function checkbtn() {
         var index = $(".question_centent").length + 1;
         //$("#footend").before(radioinfo1);
         var checkinfo1 = $(
-            '<div class="question_centent " tabindex="0">\n' +
+            '<div class="question_centent q_check_val" tabindex="0">\n' +
             '<div class="q_title_wrap ">\n' +
             '<div class="q_seq">1</div>\n' +
-            '<div class="radio_title Dottedline" contenteditable="true"><p>多选题</p></div>\n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_title">多选题</p></div>\n' +
             '<img src="../Img/delimg.png" class="disp" />\n' +
             '</div >\n' +
             '<div class="q_centent_wrap">\n' +
@@ -263,8 +263,9 @@ function checkbtn() {
             '</div>');
         $("#footend").before(checkinfo1);
         //$("#footend").prev().text();
-        $("#footend").prev().find(".q_seq").text(index);
-        console.log($("#footend").prev().find(".q_seq").text(index));
+        //$("#footend").prev().find(".q_seq").text(index);
+        //console.log($("#footend").prev().find(".q_seq").text(index));
+        cententindex();
         nulltip();
         addoptionfocus();
         deloption();
@@ -319,7 +320,7 @@ function setcentent(idbtn) {
         '</div>');
     $("#footend").before(textinfo1);
     //$("#footend").prev().text();
-    $("#footend").prev().find(".q_seq").text(index);
+    //$("#footend").prev().find(".q_seq").text(index);
     if (idbtn == 1) {
         $("#footend").prev().find(".radio_title").children(".Q_title").text("填空题");
     }
@@ -343,7 +344,8 @@ function setcentent(idbtn) {
             $("#footend").prev().find(".radio_title").children(".Q_title").text("QQ号");
             break;
     }
-    console.log($("#footend").prev().find(".q_seq").text(index));
+    //console.log($("#footend").prev().find(".q_seq").text(index));
+    cententindex();
     nulltip();
     //addoptionfocus();
     //deloption();
@@ -395,8 +397,48 @@ function subbtn() {
         var $question_centent = $(".question_centent");
         var title_content = $(".title_content");//问卷标题
         var prefix_content = $(".prefix_content");//问卷提醒
+        var question = [];
+        var type;
         for (var i = 0; i < $question_centent.length; i++) {
-            console.log($($question_centent[i]).html());
+            console.log($($question_centent[i]).length);
+            var len = [];
+            if ($($question_centent[i]).hasClass("q_radio_val")) {
+                console.log("有radio哦");
+                type = 1;
+                var Q_option_value = $($question_centent[i]).find(".Q_option_value");
+                console.log($($question_centent[i]).find(".Q_option_value"));
+                for (var j = 0; j < Q_option_value.length; j++) {
+                    var option = {
+                        valoption: $(Q_option_value[j]).text()
+                    }
+                    len.push(option);
+                }
+            } else if ($($question_centent[i]).hasClass("q_check_val")) {
+                console.log("有check哦");
+                type = 2;
+                var Q_option_value = $($question_centent[i]).find(".Q_option_value");
+                console.log($($question_centent[i]).find(".Q_option_value"));
+                for (var j = 0; j < Q_option_value.length; j++) {
+                    var option = {
+                        valoption: $(Q_option_value[j]).text()
+                    }
+                    len.push(option);
+                }
+            } else {
+                console.log("有文本框哦");
+                type = 3;
+                len = [];
+            }
+            var title = $($question_centent[i]).find(".Q_title").text();
+            console.log(title);
+            var centent = {
+                title: title,
+                option: len,
+                type: type
+            }
+            question.push(centent);
+           
         }
+        console.log(question);
     })
 }
