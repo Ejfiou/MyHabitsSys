@@ -2,16 +2,55 @@
     doload();
 });
 function doload() {
-    
+    subbtn();
+    nulltip();
+    radiobtn();//单选按钮点击事件
+    checkbtn();
+    textbtn();
+    sexbtn();
     cententclick();
     cententhover();//模块选中时事件
     optionfoucus();//选项focus和hover事件
-    addoptionfocus();//添加选项按钮事件
-    radiobtn();//单选按钮点击事件
+    //addoptionfocus();//添加选项按钮事件
+    
+  
+}
+function nulltip() {
+    var $question_centent = $(".question_centent");
+    console.log($question_centent.length);
+    if ($question_centent.length == 0) {
+        $(".question_null_tip").removeClass("disp"); 
+    } else{
+        $(".question_null_tip").addClass("disp");
+    }
+}
+//function optinonindex() {
+//    var $question_centent = $(".question_centent");
+//    var $Q_option_value = $(".Q_option_value");
+//    for (var i = 0; i < $question_centent.length; i++) {
+//        var optionnum = $($question_centent[i]).children(".q_centent_wrap").length
+//        for (var j = 0; j < optionnum; j++) {
+//            $($Q_option_value[j]).text("选项" + j);
+//        };
+        
+//    };
+//    continue;
+//}
+function deloption(){
+    var deloption = $(".deloption");
+   // console.log(deloption);
+    for (var i = 0; i < deloption.length; i++) {
+        $(deloption[i]).click(function () {
+            $(this).closest(".q_centent_wrap").remove();
+        });
+        
+    }
+    //optinonindex();
 }
 function addoptionfocus() {
+    console.log("进来啦");
     var addoption = $(".addoption");
-    console.log(addoption);
+   // console.log(addoption);
     for (var i = 0; i < addoption.length;i++) {
         $(addoption[i]).hover(function () {
             $(this).css("background", "#f4f4f4")
@@ -19,19 +58,36 @@ function addoptionfocus() {
             $(this).css("background", "#fff");
             });
         $(addoption[i]).click(function () {
-            var option1 = '<div class="q_centent_wrap">\n' +
-                '<div class="q_optionval">\n' +
-                '<div class="radio_centent_wrap Q_option">\n' +
-                '<div class="radio_img" contenteditable="false"></div>\n' +
-                '<div class="radio_centent Q_option_value" contenteditable="true"></div>\n' +
-                '</div> \n' +
-                '<img src="../Img/delziimg.png" class="disp" />\n' +
-                ' </div>\n' +
-                '</div >\n';
+            var option1;
+            var radioimglen = $(this).parent().prev().children().children().children(".radio_img").length;
+            console.log($(this).parent().prev().children().children().children(".radio_img").length);
+            if (radioimglen > 0) {
+                 option1 = '<div class="q_centent_wrap">\n' +
+                    '<div class="q_optionval">\n' +
+                    '<div class="radio_centent_wrap Q_option">\n' +
+                    '<div class="radio_img" contenteditable="false"></div>\n' +
+                    '<div class="ques_centent Q_option_value" contenteditable="true"></div>\n' +
+                    '</div> \n' +
+                    '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+                    ' </div>\n' +
+                    '</div>\n';
+            } else{
+                option1 = '<div class="q_centent_wrap">\n' +
+                    '<div class="q_optionval">\n' +
+                    '<div class="radio_centent_wrap Q_option">\n' +
+                    '<div class="check_img" contenteditable="false"></div>\n' +
+                    '<div class="ques_centent Q_option_value" contenteditable="true"></div>\n' +
+                    '</div> \n' +
+                    '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+                    ' </div>\n' +
+                    '</div>\n';
+            }
             $(this).parent().prev().after(option1);
-            console.log($(this).parent().parent().children('.q_centent_wrap').length);
+         //   console.log($(this).parent().parent().children('.q_centent_wrap').length);
             var optionindex = $(this).parent().parent().children('.q_centent_wrap').length;
-            $(this).parent().prev().find(".Q_option_value").text('选项'+optionindex);
+            $(this).parent().prev().find(".Q_option_value").text('选项' + optionindex);
+            optionfoucus();
+            deloption();
         });
     }
         
@@ -40,7 +96,7 @@ function optionfoucus() {
     //选项获得焦点时背景变黑
     var $Q_option_value = $(".Q_option_value");
     //   console.log($Q_option_value);
-    var $Q_option = $(".Q_option");
+    var $q_optionval = $(".q_optionval");
     for (var i = 0; i < $Q_option_value.length; i++) {
         $($Q_option_value[i]).focus(function () {
             // console.log($(this).parent());
@@ -56,19 +112,19 @@ function optionfoucus() {
             $(this).parent().next("img").addClass("disp");
         });
         //选项hover时虚线
-        $($Q_option[i]).hover(function () {
-            if ($(this).hasClass("myfocus")) {
+        $($q_optionval[i]).hover(function () {
+            if ($(this).children(".Q_option").hasClass("myfocus")) {
                 return false;
             } else {
-                $(this).css("border", "1px dashed #808080");
-                $(this).next("img").removeClass("disp");
+                $(this).children(".Q_option").css("border", "1px dashed #808080");
+                $(this).children("img").removeClass("disp");
             }
         }, function () {
-            $(this).css("border", "1px solid transparent");
-            if ($(this).hasClass("myfocus")) {
+            $(this).children(".Q_option").css("border", "1px solid transparent");
+            if ($(this).children(".Q_option").hasClass("myfocus")) {
                 return false;
             } else {
-                $(this).next("img").addClass("disp");
+                $(this).children("img").addClass("disp");
             }
         });
     }
@@ -115,6 +171,11 @@ function cententclick() {
             $('.question_centent').not($centent).removeClass("question_focus");
             $('.question_centent').not($centent).children(".q_title_wrap").children("img").addClass("disp");
             $('.question_centent').not($centent).children(".addoption_centent").addClass("disp");
+            var cententimg = $centent.children(".q_title_wrap").children("img");
+            cententimg.click(function () {
+                $centent.remove();
+                nulltip();
+            })
         } else {
           //  console.log("没有");
             $(".question_centent").removeClass("question_focus");
@@ -125,43 +186,217 @@ function cententclick() {
 }
 function radiobtn() {
     $("#radiobtn").click(function () {
-        var index = $(".question_centent").length+1;
+        var index = $(".question_centent").length + 1;
         //$("#footend").before(radioinfo1);
         var radioinfo1 = $(
-        '<div class="question_centent " tabindex="0">\n' +
+            '<div class="question_centent " tabindex="0">\n' +
             '<div class="q_title_wrap ">\n' +
-                 '<div class="q_seq">1</div>\n' + 
-                 '<div class="radio_title Dottedline" contenteditable="true"><p>单选题</p></div>\n' +
-                 '<img src="../Img/delimg.png" class="disp" />\n' +
+            '<div class="q_seq">1</div>\n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p>单选题</p></div>\n' +
+            '<img src="../Img/delimg.png" class="disp" />\n' +
             '</div >\n' +
             '<div class="q_centent_wrap">\n' +
-                '<div class="q_optionval">\n' +
-                    '<div class="radio_centent_wrap Q_option">\n' +
-                         '<div class="radio_img" contenteditable="false"></div>\n' +
-                         '<div class="radio_centent Q_option_value" contenteditable="true">选项1</div>\n' +
-                    '</div> \n' +
-                    '<img src="../Img/delziimg.png" class="disp" />\n' +
-               ' </div>\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="radio_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" contenteditable="true">选项1</div>\n' +
+            '</div> \n' +
+            '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+            ' </div>\n' +
             '</div >\n' +
-            '<div class="q_centent_wrap ">\n'+
-                 '<div class="q_optionval">\n'+
-                    '<div class="radio_centent_wrap Q_option">\n'+
-                        '<div class="radio_img" contenteditable="false"></div>\n'+
-                        '<div class="radio_centent Q_option_value" contenteditable="true">选项2</div>\n'+
-                    '</div >\n'+
-                    '<img src="../Img/delziimg.png" class="disp" />\n'+
-                '</div >\n'+
+            '<div class="q_centent_wrap ">\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="radio_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" contenteditable="true">选项2</div>\n' +
+            '</div >\n' +
+            '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+            '</div >\n' +
             '</div>\n' +
-            '<div class="addoption_centent disp"><div class="addoption"><img src="../Img/addoption.png" />添加单个选项</div></div>\n'+
-           '</div>');
+            '<div class="addoption_centent disp"><div class="addoption"><img src="../Img/addoption.png" />添加单个选项</div></div>\n' +
+            '</div>');
         $("#footend").before(radioinfo1);
         //$("#footend").prev().text();
         $("#footend").prev().find(".q_seq").text(index);
         console.log($("#footend").prev().find(".q_seq").text(index));
-
+        nulltip();
+        addoptionfocus();
+        deloption();
         cententclick();
         cententhover();//模块选中时事件
         optionfoucus();//选项focus和hover事件
+        
+        
+        
+    });
+}
+function checkbtn() {
+    $("#checkbtn").click(function () {
+        var index = $(".question_centent").length + 1;
+        //$("#footend").before(radioinfo1);
+        var checkinfo1 = $(
+            '<div class="question_centent " tabindex="0">\n' +
+            '<div class="q_title_wrap ">\n' +
+            '<div class="q_seq">1</div>\n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p>多选题</p></div>\n' +
+            '<img src="../Img/delimg.png" class="disp" />\n' +
+            '</div >\n' +
+            '<div class="q_centent_wrap">\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="check_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" contenteditable="true">选项1</div>\n' +
+            '</div> \n' +
+            '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+            ' </div>\n' +
+            '</div >\n' +
+            '<div class="q_centent_wrap ">\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="check_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" contenteditable="true">选项2</div>\n' +
+            '</div >\n' +
+            '<img src="../Img/delziimg.png" class="disp deloption" />\n' +
+            '</div >\n' +
+            '</div>\n' +
+            '<div class="addoption_centent disp"><div class="addoption"><img src="../Img/addoption.png" />添加单个选项</div></div>\n' +
+            '</div>');
+        $("#footend").before(checkinfo1);
+        //$("#footend").prev().text();
+        $("#footend").prev().find(".q_seq").text(index);
+        console.log($("#footend").prev().find(".q_seq").text(index));
+        nulltip();
         addoptionfocus();
+        deloption();
+        cententclick();
+        cententhover();//模块选中时事件
+        optionfoucus();//选项focus和hover事件
+
+
+    });
+}
+
+function textbtn() {
+    $("#textbtn").click(function () {//填空题
+        var textbtn = 1;
+        setcentent(textbtn);
+    });
+    $("#namebtn").click(function () {//姓名
+        var namebtn = 2;
+        setcentent(namebtn);
+    });
+    $("#phonebtn").click(function () {//手机
+        var phonebtn = 3;
+        setcentent(phonebtn);
+    });
+    $("#emailbtn").click(function () {//邮箱
+        var emailbtn = 4;
+        setcentent(emailbtn);
+    });
+    $("#agebtn").click(function () {//年龄
+        var agebtn = 5;
+        setcentent(agebtn);
+    });
+    $("#qbtn").click(function () {//QQ号
+        var qbtn = 6;
+        setcentent(qbtn);
+    });
+}
+function setcentent(idbtn) {
+    var index = $(".question_centent").length + 1;
+    //$("#footend").before(radioinfo1);
+    var textinfo1 = $(
+        '<div class="question_centent" tabindex="0">\n' +
+        '<div class="q_title_wrap ">\n' +
+        '<div class="q_seq">1</div>\n' +
+        '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_title"></p></div>\n' +
+        '<img src="../Img/delimg.png" class="disp" />\n' +
+        '</div >\n' +
+        '<div class="q_centent_wrap">\n' +
+        '<div class="q_optionval">\n' +
+        '<div class="q_cententFill"></div>\n' +
+        ' </div>\n' +
+        '</div>');
+    $("#footend").before(textinfo1);
+    //$("#footend").prev().text();
+    $("#footend").prev().find(".q_seq").text(index);
+    if (idbtn == 1) {
+        $("#footend").prev().find(".radio_title").children(".Q_title").text("填空题");
+    }
+    switch (idbtn) {
+        case 1:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("填空题");
+            break;
+        case 2:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("姓名");
+            break;
+        case 3:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("手机");
+            break;
+        case 4:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("邮箱");
+            break;
+        case 5:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("年龄");
+            break;
+        case 6:
+            $("#footend").prev().find(".radio_title").children(".Q_title").text("QQ号");
+            break;
+    }
+    console.log($("#footend").prev().find(".q_seq").text(index));
+    nulltip();
+    //addoptionfocus();
+    //deloption();
+    cententclick();
+    cententhover();//模块选中时事件
+        //optionfoucus();//选项focus和hover事件
+
+}
+function sexbtn() {
+    $("#sexbtn").click(function () {
+        var index = $(".question_centent").length + 1;
+        //$("#footend").before(radioinfo1);
+        var sexinfo1 = $(
+            '<div class="question_centent " tabindex="0">\n' +
+            '<div class="q_title_wrap ">\n' +
+            '<div class="q_seq">1</div>\n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_title">性别</p></div>\n' +
+            '<img src="../Img/delimg.png" class="disp" />\n' +
+            '</div >\n' +
+            '<div class="q_centent_wrap">\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="radio_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" >男</div>\n' +
+            '</div> \n' +
+            ' </div>\n' +
+            '</div >\n' +
+            '<div class="q_centent_wrap ">\n' +
+            '<div class="q_optionval">\n' +
+            '<div class="radio_centent_wrap Q_option">\n' +
+            '<div class="radio_img" contenteditable="false"></div>\n' +
+            '<div class="ques_centent Q_option_value" >女</div>\n' +
+            '</div >\n' +
+            '</div >\n' +
+            '</div>\n' +
+            '</div>');
+        $("#footend").before(sexinfo1);
+        //$("#footend").prev().text();
+        $("#footend").prev().find(".q_seq").text(index);
+        console.log($("#footend").prev().find(".q_seq").text(index));
+        nulltip();
+        cententclick();
+        cententhover();//模块选中时事件
+    });
+}
+function subbtn() {
+    console.log("提交啦");
+    $("#subbtn").click(function () {
+        var $question_centent = $(".question_centent");
+        var title_content = $(".title_content");//问卷标题
+        var prefix_content = $(".prefix_content");//问卷提醒
+        for (var i = 0; i < $question_centent.length; i++) {
+            console.log($($question_centent[i]).html());
+        }
     })
 }
