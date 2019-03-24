@@ -30,8 +30,8 @@
                 <p class="type_item" id="textbtn">
                     <img class="type_img" src="~/Img/radio.png" />填空题
                 </p>
-                <p class="type_item" id="">
-                    <img class="type_img" src="~/Img/radio.png" />填空题
+                <p class="type_item" id="tipsbtn">
+                    <img class="type_img" src="~/Img/radio.png" />备注
                 </p>
             </div>
             <div class="type_module">
@@ -62,12 +62,11 @@
                 <div class="survey_prefix_wrap">
                     <div class="survey_title">
                         <div class="title_content Dottedline" contenteditable="true">
-                            <p>问卷标题</p>
+                            <p id="question_title">问卷标题</p>
                         </div>
                     </div>
                     <div class="survey_prefix">
-                        <div class="prefix_content Dottedline" contenteditable="true">
-                            感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！
+                        <div class="prefix_content Dottedline" contenteditable="true">感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！
                         </div>
                     </div>
                 </div>
@@ -111,42 +110,50 @@
         </div>
         <!--单选框结束-->*@
 
-
-
-                @*<!--单选框-->
-                <div class="question_centent " tabindex="0">
+                @*<div class="question_centent Q_tips_val" tabindex="0">
                     <div class="q_title_wrap ">
                         <div class="q_seq">1</div>
-                        <div class="radio_title Dottedline" contenteditable="true">
-                            <p class="Q_title">单选题</p>
-                        </div>
-                        <img src="~/Img/delimg.png" class="disp" />
+                        <div class="radio_title Dottedline" contenteditable="true"><p class="Q_cut">分割符号</p></div>
+                        <div class="q_tips Dottedline" contenteditable="true"><p class="Q_title">备注</p></div>
+                        <img src="../Img/delimg.png" class="disp" />
                     </div>
-                    <div class="q_centent_wrap">
-                        <div class="q_optionval">
-                            <div class="radio_centent_wrap Q_option">
-                                <div class="radio_img" contenteditable="false"></div>
-                                <div class="ques_centent Q_option_value" >男</div>
+                </div>*@
+
+
+                    @*<!--单选框-->
+                    <div class="question_centent " tabindex="0">
+                        <div class="q_title_wrap ">
+                            <div class="q_seq">1</div>
+                            <div class="radio_title Dottedline" contenteditable="true">
+                                <p class="Q_title">单选题</p>
+                            </div>
+                            <img src="~/Img/delimg.png" class="disp" />
+                        </div>
+                        <div class="q_centent_wrap">
+                            <div class="q_optionval">
+                                <div class="radio_centent_wrap Q_option">
+                                    <div class="radio_img" contenteditable="false"></div>
+                                    <div class="ques_centent Q_option_value" >男</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--选项-->
-                    <div class="q_centent_wrap">
-                        <div class="q_optionval">
-                            <div class="radio_centent_wrap Q_option">
-                                <div class="radio_img" contenteditable="false"></div>
-                                <div class="ques_centent Q_option_value">女</div>
+                        <!--选项-->
+                        <div class="q_centent_wrap">
+                            <div class="q_optionval">
+                                <div class="radio_centent_wrap Q_option">
+                                    <div class="radio_img" contenteditable="false"></div>
+                                    <div class="ques_centent Q_option_value">女</div>
+                                </div>
                             </div>
                         </div>
+                        <!--选项结束-->
                     </div>
-                    <!--选项结束-->
-                </div>
-        <!--单选框结束-->*@
-                <div id="footend">
-                    <div class="Q_foot_title radio_title Dottedline" " contenteditable="true">您已完成本次问卷，感谢您的帮助与支持</div>
-                    <div id="subbtn">发布</div>
+            <!--单选框结束-->*@
+                    <div id="footend">
+                        <div class="Q_foot_title radio_title Dottedline" contenteditable="true">您已完成本次问卷，感谢您的帮助与支持</div>
+                        <div id="subbtn">发布</div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 </body>

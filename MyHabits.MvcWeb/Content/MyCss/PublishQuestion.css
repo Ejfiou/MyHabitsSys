@@ -283,3 +283,18 @@
     left:50%;
     margin-left:-56px;
 }
+.Q_tips_val {
+    width: 100%;
+    position: relative;
+}
+.q_tips{
+    width:90%;
+    margin-top:20px;
+    height:200px;
+}
+
+.Q_tips_val img {
+    position: absolute;
+    top: 0;
+    left: 600px;
+}

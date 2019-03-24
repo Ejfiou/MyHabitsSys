@@ -5,9 +5,10 @@ function doload() {
     subbtn();
     nulltip();
     radiobtn();//单选按钮点击事件
-    checkbtn();
-    textbtn();
-    sexbtn();
+    checkbtn();//多选按钮点击事件
+    textbtn();// 文本按钮点击事件
+    sexbtn();// 性别按钮点击事件
+    tipsbtn();// 备注按钮点击事件
     cententclick();
     cententhover();//模块选中时事件
     optionfoucus();//选项focus和hover事件
@@ -359,7 +360,7 @@ function sexbtn() {
         var index = $(".question_centent").length + 1;
         //$("#footend").before(radioinfo1);
         var sexinfo1 = $(
-            '<div class="question_centent " tabindex="0">\n' +
+            '<div class="question_centent q_radio_val" tabindex="0">\n' +
             '<div class="q_title_wrap ">\n' +
             '<div class="q_seq">1</div>\n' +
             '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_title">性别</p></div>\n' +
@@ -391,6 +392,33 @@ function sexbtn() {
         cententhover();//模块选中时事件
     });
 }
+
+function tipsbtn() {
+    $("#tipsbtn").click(function () {
+        var index = $(".question_centent").length + 1;
+        //$("#footend").before(radioinfo1);
+        var tipsinfo1 = $(
+            '<div class= "question_centent Q_tips_val" tabindex = "0"> \n' +
+            '<div class= "q_title_wrap " > \n' +
+            '<div class= "q_seq" > 1</div > \n' +
+            '<div class="radio_title Dottedline" contenteditable="true"><p class="Q_cut">分割符号</p></div> \n' +
+            '<div class= "q_tips Dottedline" contenteditable = "true"> <p class="Q_title">备注</p></div > \n' +
+            '<img src="../Img/delimg.png" class="disp" /> \n' +
+            '</div > \n' +
+            '</div>');
+        $("#footend").before(tipsinfo1);
+        //$("#footend").prev().text();
+        //$("#footend").prev().find(".q_seq").text(index);
+        //console.log($("#footend").prev().find(".q_seq").text(index));
+        cententindex();
+        nulltip();
+        cententclick();
+        cententhover();//模块选中时事件
+
+
+    });
+}
+
 function subbtn() {
     console.log("提交啦");
     $("#subbtn").click(function () {
@@ -398,6 +426,7 @@ function subbtn() {
         var title_content = $(".title_content");//问卷标题
         var prefix_content = $(".prefix_content");//问卷提醒
         var question = [];
+        var title;
         var type;
         for (var i = 0; i < $question_centent.length; i++) {
             console.log($($question_centent[i]).length);
@@ -429,7 +458,13 @@ function subbtn() {
                 type = 3;
                 len = [];
             }
-            var title = $($question_centent[i]).find(".Q_title").text();
+            if ($($question_centent[i]).hasClass("Q_tips_val")) {
+                len = $($question_centent[i]).find(".q_tips").text();
+                title = $($question_centent[i]).find(".Q_cut").text();
+                type = 4;
+            } else {
+                title = $($question_centent[i]).find(".radio_title").text();
+            }
             console.log(title);
             var centent = {
                 title: title,
@@ -439,6 +474,24 @@ function subbtn() {
             question.push(centent);
            
         }
+        var question_title = $("#question_title").text();
+        var question_prefix = $(".prefix_content").text();
         console.log(question);
+        console.log(question_title);
+        console.log(question_prefix);
+        var question_centent = JSON.stringify(question);
+        $.post('/PublishQuestion/SetQuesInfo', {
+            question_title: question_title,
+            question_centent: question,
+            question__status: 1,
+            question_prefix: question_prefix
+        }, function (res) {
+            console.log(res);
+            if (res.success) {
+                console.log("发布成功");
+            } else {
+                console.log("发布失败");
+            }
+        });
     })
 }
