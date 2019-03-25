@@ -1,4 +1,5 @@
-﻿using MyHabits.DataEntity;
+﻿using Dapper;
+using MyHabits.DataEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,17 @@ namespace MyHabits.DataAccess
             return flag > 0;
         }
 
+
+        public List<Question> GetQuesInfo(Question ques)
+        {
+            string sql = "select * from Questioninfo where  1=1";
+            var p = new DynamicParameters();
+            sql += " and questionID = @questionID ";
+            p.Add("@questionID", ques.questionID);
+
+            var Myquesinfo = DbHelper.Query<Question>(sql, p);
+
+            return Myquesinfo;
+        }
     }
 }

@@ -479,10 +479,10 @@ function subbtn() {
         console.log(question);
         console.log(question_title);
         console.log(question_prefix);
-        var question_centent = JSON.stringify(question);
+        var question_centent1 = JSON.stringify(question);
         $.post('/PublishQuestion/SetQuesInfo', {
             question_title: question_title,
-            question_centent: question,
+            question_centent: question_centent1,
             question__status: 1,
             question_prefix: question_prefix
         }, function (res) {

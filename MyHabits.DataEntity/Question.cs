@@ -28,7 +28,7 @@ namespace MyHabits.DataEntity
 
         [Required]
         [DataMember]
-        public int question__status { get; set; }
+        public int? question__status { get; set; }
 
         [DataMember]
         public string question_prefix { get; set; }

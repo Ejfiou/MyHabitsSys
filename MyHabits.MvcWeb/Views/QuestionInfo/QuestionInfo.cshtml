@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "QuestionInfo";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>填写问卷</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/QuestionInfo.css" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/MyScript/QuestionInfo.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/icheck-1.x/skins/flat/red.css" />
+    <script src="~/icheck-1.x/icheck.js"></script>
+</head>
+<body>
+    <section class="Question_session">
+        <div id="Qu_centent">
+            <div class="Ques_head">
+                <h1 class="title_content">这是标题</h1>
+                <div class="prefix_content">这是标签</div>
+            </div>
+            <div id="Ques_centent">
+                <!--题目-->
+                <div class="question_centent">
+                    <div class="Q_title"><span class="q_seq">1</span>标题</div>
+                    <div class="q_centent_wrap">
+                        <input type="checkbox" /> 
+                        <input type="checkbox" checked><span>选项2</span><br />
+                        <input type="radio" name="iCheck"><span>选项3</span><br />
+                        <input type="radio" name="iCheck" checked><span>选项4</span><br />
+                    </div>
+                </div>
+                <!--题目结束-->
+                <!--题目-->
+                <div class="question_centent">
+                    <div class="Q_title"><span class="q_seq">1</span>标题</div>
+                    <div class="q_centent_wrap">
+                        <input type="checkbox" /><span>选项一</span><br />
+                        <input type="checkbox" checked><span>选项2</span><br />
+                        <input type="radio" name="iCheck"><span>选项3</span><br />
+                        <input type="radio" name="iCheck" checked><span>选项4</span><br />
+                    </div>
+                </div>
+                <!--题目结束-->
+            </div>
+        </div>
+    </section>
+</body>
