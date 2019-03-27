@@ -428,16 +428,18 @@ function subbtn() {
         var question = [];
         var title;
         var type;
+        var Q_option_value;
+        var option;
         for (var i = 0; i < $question_centent.length; i++) {
             console.log($($question_centent[i]).length);
             var len = [];
             if ($($question_centent[i]).hasClass("q_radio_val")) {
                 console.log("有radio哦");
                 type = 1;
-                var Q_option_value = $($question_centent[i]).find(".Q_option_value");
+                Q_option_value = $($question_centent[i]).find(".Q_option_value");
                 console.log($($question_centent[i]).find(".Q_option_value"));
                 for (var j = 0; j < Q_option_value.length; j++) {
-                    var option = {
+                     option = {
                         valoption: $(Q_option_value[j]).text()
                     }
                     len.push(option);
@@ -445,10 +447,10 @@ function subbtn() {
             } else if ($($question_centent[i]).hasClass("q_check_val")) {
                 console.log("有check哦");
                 type = 2;
-                var Q_option_value = $($question_centent[i]).find(".Q_option_value");
+                 Q_option_value = $($question_centent[i]).find(".Q_option_value");
                 console.log($($question_centent[i]).find(".Q_option_value"));
                 for (var j = 0; j < Q_option_value.length; j++) {
-                    var option = {
+                     option = {
                         valoption: $(Q_option_value[j]).text()
                     }
                     len.push(option);
