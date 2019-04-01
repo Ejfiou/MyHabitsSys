@@ -32,5 +32,10 @@ namespace MyHabits.DataEntity
 
         [DataMember]
         public string question_prefix { get; set; }
+
+        [Required]
+        [DataMember]
+        public DateTime question_sdTime { get; set; }
+
     }
 }

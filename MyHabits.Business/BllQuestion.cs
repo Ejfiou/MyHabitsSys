@@ -16,10 +16,22 @@ namespace MyHabits.Business
         {
             return dal.SetQuesinfo(ques);
         }
-
+        
         public List<Question> GetQuesInfo(Question ques)
         {
             return dal.GetQuesInfo(ques);
         }
+
+        public List<Question> GetAllQuesInfo(Question ques)
+        {
+            return dal.GetAllQuesInfo(ques);
+        }
+        
+
+        public bool UpdateFstatus(Question ques)
+        {
+            return dal.UpdateFstatus(ques);
+        }
+
     }
 }

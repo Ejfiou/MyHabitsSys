@@ -132,6 +132,7 @@
     <Compile Include="Controllers\PublishHealController.cs" />
     <Compile Include="Controllers\PublishQuestionController.cs" />
     <Compile Include="Controllers\QuestionInfoController.cs" />
+    <Compile Include="Controllers\QuestionListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +154,7 @@
     <Content Include="Content\MyCss\PublishHeal.css" />
     <Content Include="Content\MyCss\PublishQuestion.css" />
     <Content Include="Content\MyCss\QuestionInfo.css" />
+    <Content Include="Content\MyCss\QuestionList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -302,6 +304,7 @@
     <Content Include="Img\arrow-ios-downward-o.png" />
     <Content Include="Img\bluefu.png" />
     <Content Include="Img\clickimg.png" />
+    <Content Include="Img\delgray.png" />
     <Content Include="Img\delimg.png" />
     <Content Include="Img\delziimg.png" />
     <Content Include="Img\greenfu.png" />
@@ -332,6 +335,7 @@
     <Content Include="Scripts\MyScript\PublishHeal.js" />
     <Content Include="Scripts\MyScript\PublishQuestion.js" />
     <Content Include="Scripts\MyScript\QuestionInfo.js" />
+    <Content Include="Scripts\MyScript\QuestionList.js" />
     <Content Include="Scripts\Personalinfo.js" />
     <Content Include="WebService1.asmx" />
     <Content Include="icheck-1.x\bower.json" />
@@ -376,6 +380,7 @@
     <Content Include="Views\Jumppage\Jumppage.cshtml" />
     <Content Include="Views\PublishQuestion\PublishQuestion.cshtml" />
     <Content Include="Views\QuestionInfo\QuestionInfo.cshtml" />
+    <Content Include="Views\QuestionList\QuestionList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

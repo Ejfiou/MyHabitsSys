@@ -30,5 +30,27 @@ namespace MyHabits.DataAccess
 
             return Myquesinfo;
         }
+
+        public List<Question> GetAllQuesInfo(Question ques)
+        {
+            string sql = "select * from Questioninfo where question__status =1";
+
+            var Myallquesinfo = DbHelper.Query<Question>(sql);
+
+            return Myallquesinfo;
+        }
+
+        public bool UpdateFstatus(Question ques)
+        {
+            var p = new DynamicParameters();
+            p.Add("@questionID", ques.questionID);
+            string sql = "update Questioninfo set question__status =0 where questionID = @questionID";
+     
+
+            var quesFstatus = DbHelper.Execute(sql, p);
+
+            return quesFstatus>0;
+        }
+
     }
 }

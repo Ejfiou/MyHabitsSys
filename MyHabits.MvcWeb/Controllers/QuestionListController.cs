@@ -9,11 +9,11 @@ using System.Web.Mvc;
 
 namespace MyHabits.MvcWeb.Controllers
 {
-    public class PublishQuestionController : Controller
+    public class QuestionListController : Controller
     {
-        // GET: PublishQuestion
+        // GET: QuestionList
         BllQuestion bll = new BllQuestion();
-        public ActionResult PublishQuestion()
+        public ActionResult QuestionList()
         {
             if (Session["UserInfo"] != null)
             {
@@ -35,19 +35,31 @@ namespace MyHabits.MvcWeb.Controllers
         }
 
 
-        
-        public JsonResult SetQuesInfo(Question ques)
+        public JsonResult GetAllQuesInfo()
         {
-            ques.question_sdTime = DateTime.Now;
-            bool flag = bll.SetQuesinfo(ques);
-            if (flag == true)
+
+            Question pub1 = new Question();
+            List<Question> listpub = bll.GetAllQuesInfo(pub1);
+            if (listpub.Count > 0)
             {
-                return Json(new AjaxResult() { success = true, msg = "问卷发布成功" });
+                return Json(new AjaxResult() { success = true, msg = "取值成功", data = listpub });
             }
             else
             {
-                return Json(new AjaxResult() { success = false, msg = "问卷发布失败" });
+                return Json(new AjaxResult() { success = false, msg = "传送失败" });
             }
         }
+        
+             public JsonResult UpdateQuesFstatus(Question ques)
+        {
+
+         
+                if (ques.questionID != null)
+                {
+                    bll.UpdateFstatus(ques);
+                }
+            return Json(new AjaxResult() { success = true, msg = "上传成功" });
+        }
+
     }
 }

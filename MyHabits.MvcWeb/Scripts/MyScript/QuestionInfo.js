@@ -54,9 +54,13 @@ function tags() {
 }
 
 function Getquestioninfo() {
-    
+    var url = location.search;
+    console.log(url);
+    var id = parseInt(url.substr(1));
+    console.log(id);
+    console.log(typeof (id));
     $.post('/QuestionInfo/GetQuesInfo', {
-        questionID:2
+        questionID:id
     }, function (res) {
         console.log(res);
         if (res.success) {
@@ -82,7 +86,7 @@ function Getquestioninfo() {
                 if (question_centent[i].type == 1) {
                     console.log(question_centent[i].title);
                     for (var j = 0; j < question_centent[i].option.length; j++) {
-                        $($(".question_centent")[i]).attr("class","q_radio");
+                        $($(".question_centent")[i]).addClass("q_radio");
                         console.log("you");
                         $question_option = $(
                             '  <div class="q_centent_wrap">\n' +
@@ -91,14 +95,17 @@ function Getquestioninfo() {
                             ' </div> <label  class="option_title">Bar</label> <br />\n' +
                             '</div >');
                         idnum++;
-                        $("#box").attr({ "titile": "标题", "href": "www.baidu.com" });
+                        console.log($(".question_centent:last"));
                         $(".question_centent:last").append($question_option);
                         $(".question_centent:last").children(".q_centent_wrap:last").find("input").attr({ "id": "baz" + idnum, "name": "quux" + namenum, "value": j });
+                        
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").attr("for", "baz" + idnum);
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text(question_centent[i].option[j].valoption);
+                        console.log($(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text());
+                        console.log(question_centent[i].option[j].valoption );
                     }
                 } else if (question_centent[i].type == 2) {
-                    $($(".question_centent")[i]).attr("class", "q_check");
+                    $($(".question_centent")[i]).addClass( "q_check");
                     console.log(question_centent[i].title);
                     for (var j = 0; j < question_centent[i].option.length; j++) {
                         console.log("you");
@@ -114,9 +121,9 @@ function Getquestioninfo() {
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").attr("for", "baz" + idnum);
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text(question_centent[i].option[j].valoption);
                     }
-                } else {
+                } else if (question_centent[i].type == 3){
                     console.log(question_centent[i].title);
-                    $($(".question_centent")[i]).attr("class", "q_text");
+                    $($(".question_centent")[i]).addClass("q_textval");
                         console.log("you");
                         $question_option = $(
                             '  <div class="q_centent_wrap">\n' +
