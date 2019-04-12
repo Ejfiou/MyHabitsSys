@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "HealList";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>填写问卷</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HealList.css" />
+    <link type="text/css" rel="stylesheet" href="~/layui/css/layui.css"/>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/MyScript/HealList.js"></script>
+    <script src="~/layui/layui.js"></script>
+  
+
+</head>
+<body>
+    <section>
+        <div class="listleft">
+            <div class="location">您当前的位置：<span class="heal_type" id="healtypeID"></span></div>
+            <ul id="healtypelist">
+              @*  <li><a href="#"><span class="healtitle">这是一个文章</span><span class="sd_time">2019年2月3日 19：20</span></a></li>*@
+
+            </ul>
+
+
+        </div>
+        <div class="listright">
+            <div class="Noall"><img src="~/Img/Noall.png"/>热门点击排行榜</div>
+            <ul id="rightul">
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No1.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No2.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No3.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">4</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">5</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">6</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">7</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">8</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">9</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">10</div></div><span class="healrig_title"></span></a></li>
+            </ul>
+        </div>
+    </section>
+    <!--翻页-->
+    @*  <div class="zxf_pagediv"></div>*@
+    <div id="paging"></div>
+</body>

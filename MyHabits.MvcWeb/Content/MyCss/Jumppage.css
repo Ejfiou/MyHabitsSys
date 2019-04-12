@@ -1,0 +1,29 @@
+﻿body {
+    background: #eeeff1;
+    width: 100%;
+}
+.per {
+    width: 500px;
+    float: left;
+    margin-left:30px;
+}
+section{
+    width:700px;
+    position:relative;
+    float:left;
+    top:50px;
+    left:50px;
+    
+}
+section img{
+    width:100%;
+}
+.jumpcentent{
+    position:absolute;
+    top:100px;
+    left:200px;
+}
+h2,
+#Timemin {
+    color: var(--main-color);
+}

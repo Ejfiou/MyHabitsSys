@@ -1,0 +1,152 @@
+﻿body {
+    width:100%;
+
+}
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:#000;
+}
+section{
+    width:80%;
+    margin:0 auto;
+    margin-top:20px;
+}
+p{
+    /*outline:none;*/
+}
+.w-e-text-container {
+    border:0px!important;
+}
+#HealContent {
+    border: 0px;
+    width:100%;
+    height:100%;
+}
+#HealTitle {
+    width:100%;
+    height:auto;
+    margin-top: 30px;
+    font-size: 30px;
+    line-height: 120%;
+    font-family: "Microsoft YaHei";
+    word-break: break-all;
+    margin-bottom:20px;
+}
+#sdtime, #count {
+    font-size: 15px;
+    color: #999;
+    padding: 10px 0;
+}
+#count{
+    margin-left:550px;
+}
+.time{
+    margin-bottom:10px;
+}
+p {
+    font-size: 18px;
+    line-height: 180%;
+    margin: 25px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*左右区块样式*/
+.listleft {
+    width: 68%;
+    height: 700px; /**/
+    /*background: #ff0000;*/
+    float: left;
+    /*overflow: hidden;*/
+}
+
+.listright {
+    position: fixed;
+    right: 140px;
+    width: 350px;
+    height: 500px;
+    background: #fafafa;
+    float: right;
+    margin-top: 90px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+#rightul li {
+    display: block;
+    width: 100%;
+    clear: both;
+    height: 45px;
+}
+
+.Noall {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #e4e4e4;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 70px;
+    color: var(--main-color);
+    padding-left: 6px;
+    margin-bottom: 10px;
+}
+
+    .Noall img {
+        width: 40px;
+        margin: 8px 6px 20px 0px;
+    }
+    .Noall span{
+        position:relative;
+        top:-22px;
+    }
+
+    .Noimg {
+        width: 40px;
+        height: 40px;
+        float: left;
+    }
+
+    .Noimg img {
+        width: 100%;
+    }
+
+    .Noimg .Nonum {
+        width: 60%;
+        height: 60%;
+        background: var(--main-color);
+        border-radius: 30px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        line-height: 25px;
+        margin-left: 10px;
+    }
+
+.healrig_title {
+    display: block;
+    margin-left: 5px;
+    width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+}
+
+.Notop {
+    line-height: 40px;
+}
+
+#rightul li a:hover {
+    color: var(--main-color);
+}

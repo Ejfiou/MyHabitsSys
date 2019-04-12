@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BllAccount.cs" />
+    <Compile Include="BllAnswerinfo.cs" />
     <Compile Include="BllPublishHeal.cs" />
     <Compile Include="BllQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

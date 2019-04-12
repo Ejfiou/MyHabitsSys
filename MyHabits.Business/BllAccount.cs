@@ -48,5 +48,9 @@ namespace MyHabits.Business
             return dal.UserPsd(user);
         }
 
+         public List<UserEntity> GetPersonalList(out int total,int page,int limit)
+        {
+            return dal.GetPersonalList(out total, page, limit);
+        }
     }
 }

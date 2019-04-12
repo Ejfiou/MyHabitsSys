@@ -33,7 +33,7 @@ namespace MyHabits.DataAccess
 
         public List<Question> GetAllQuesInfo(Question ques)
         {
-            string sql = "select * from Questioninfo where question__status =1";
+            string sql = "select * from Questioninfo where question__status =1  ORDER BY question_sdTime DESC ";
 
             var Myallquesinfo = DbHelper.Query<Question>(sql);
 

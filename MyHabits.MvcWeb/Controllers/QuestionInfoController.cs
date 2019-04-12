@@ -13,6 +13,7 @@ namespace MyHabits.MvcWeb.Controllers
     {
         // GET: QuestionInfo
         BllQuestion bll = new BllQuestion();
+        BllAnswerinfo bllan = new BllAnswerinfo();
         public ActionResult QuestionInfo()
         {
             if (Session["UserInfo"] != null)
@@ -49,5 +50,24 @@ namespace MyHabits.MvcWeb.Controllers
                 return Json(new AjaxResult() { success = false, msg = "传送失败" });
             }
         }
+
+
+        
+        public JsonResult SetAnswerinfo(Answerinfo answer)
+        {
+
+            Answerinfo pub1 = new Answerinfo();
+
+            bool flag = bllan.SetAnswerinfo(answer);
+            if (flag == true)
+            {
+                return Json(new AjaxResult() { success = true, msg = "传值成功"});
+            }
+            else
+            {
+                return Json(new AjaxResult() { success = false, msg = "传值失败" });
+            }
+        }
+
     }
 }

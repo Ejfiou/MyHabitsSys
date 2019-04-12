@@ -1,0 +1,30 @@
+﻿body {
+    width:100%;
+}
+.userphoto { /*最后的pic为字段的field*/
+    height: 100%;
+    max-width: 100%;
+    border-radius:60px;
+}
+section{
+    width:80%;
+    margin:0 auto;
+    margin-top:30px;
+}
+.layui-table-cell {
+    height: 56px;
+    line-height: 56px;
+}
+.layui-laypage-em {
+    background-color: var(--main-color)!important;
+}
+#layui-laypage-1{
+    align-content:center;
+}
+.layui-form-onswitch {
+    border-color: var(--main-color) !important;
+    background-color: var(--main-color) !important;
+}
+.layui-table-view .layui-form-switch{
+    top:20!important;
+}

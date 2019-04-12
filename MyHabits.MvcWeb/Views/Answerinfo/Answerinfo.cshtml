@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Answerinfo";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>问卷答案</title>
+
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/Answerinfo.css" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+   
+    <link type="text/css" rel="stylesheet" href="~/icheck-1.x/skins/flat/red.css" />
+    <script src="~/icheck-1.x/icheck.js"></script>
+
+</head>
+<body>
+    <section class="Question_session">
+        <div id="Qu_centent">
+            <div class="Ques_head">
+                <h1 class="title_content"></h1>
+            
+            </div>
+            <div id="Ques_centent">
+
+
+                <!--多选题-->
+                @*<div class="question_centent q_check">
+            <div class="Q_title"><span class="q_seq">1</span>标题</div>
+            <div class="q_centent_wrap">
+                <div class="icheckbox  mybtnimg">
+                    <input type="checkbox" name="quux[3]" id="baz[5]" value="0" disabled checked>
+                </div><label for="baz[5]" class="option_title">Bar</label><br />
+
+
+            </div>
+            <div class="q_centent_wrap">
+                <div class="icheckbox  mybtnimg">
+                    <input type="checkbox" name="quux[3]" id="baz[6]" value="1" >
+                </div><label for="baz[6]" class="option_title">选项二</label>
+            </div>
+
+            <div class="q_centent_wrap">
+                <div class="icheckbox  mybtnimg">
+                    <input type="checkbox" name="quux[3]" id="baz[7]" value="2">
+                </div><label for="baz[7]" class="option_title">选项三</label>
+            </div>
+            <div class="echartbtn">
+                <div class="tabtn Piechart">饼状图</div> <div class="tabtn Histogram">柱状图</div> <div class="tabtn Circularchart">圆环图</div><br/>
+            </div>
+            <div class="echartmain" >123</div>
+
+        </div>*@
+                <!--题目结束-->
+            </div>
+            <div id="footend">
+                <div id="subbtn">发布</div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Scripts/echarts.js"></script>
+    <script src="~/Scripts/MyScript/Answerinfo.js"></script>
+
+</body>

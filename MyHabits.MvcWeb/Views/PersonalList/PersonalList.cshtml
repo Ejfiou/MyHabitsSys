@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "PersonalList";
+    Layout = "~/Views/Account/Login.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>填写问卷</title>
+    <link type="text/css" rel="stylesheet" href="~/layui/css/layui.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/MyCss/PersonalList.css" />
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/MyScript/PersonalList.js"></script>
+    <script src="~/layui/layui.js"></script>
+</head>
+<body>
+    <section>
+        <table class="layui-hide" id="test"></table>
+    </section>
+    <script type="text/html" id="switchTpl">
+        <!-- 这里的 checked 的状态只是演示 -->
+        <input type="checkbox"name="sex" value="{{d.ID}}" lay-skin="switch" lay-text="管理员|用户" lay-filter="setAdmin" {{ d.userStatus == 1 ? 'checked' : '' }}>
+    </script>
+    <script type="text/html" id="barDemo">
+        {{#if (d.userSex == 1) { }}
+        <span>男</span>
+        {{# }else if(d.userSex == 2){ }}
+        <span>女</span>
+        {{# } }}
+
+</body>

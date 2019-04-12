@@ -423,8 +423,6 @@ function subbtn() {
     console.log("提交啦");
     $("#subbtn").click(function () {
         var $question_centent = $(".question_centent");
-        var title_content = $(".title_content");//问卷标题
-        var prefix_content = $(".prefix_content");//问卷提醒
         var question = [];
         var title;
         var type;
@@ -437,7 +435,7 @@ function subbtn() {
                 console.log("有radio哦");
                 type = 1;
                 Q_option_value = $($question_centent[i]).find(".Q_option_value");
-                console.log($($question_centent[i]).find(".Q_option_value"));
+                console.log($($question_centent[i]).find(   ".Q_option_value"));
                 for (var j = 0; j < Q_option_value.length; j++) {
                      option = {
                         valoption: $(Q_option_value[j]).text()
@@ -491,6 +489,7 @@ function subbtn() {
             console.log(res);
             if (res.success) {
                 console.log("发布成功");
+                window.location.href = "/Jumppage/Jumppage?id=" + 1 + "?page=23" + "?msg=4";
             } else {
                 console.log("发布失败");
             }

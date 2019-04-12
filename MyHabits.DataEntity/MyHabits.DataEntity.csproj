@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answerinfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishHeal.cs" />
     <Compile Include="Question.cs" />

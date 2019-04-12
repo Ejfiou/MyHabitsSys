@@ -196,6 +196,13 @@ function clearinp() {
 
 //导航栏
 function navbar() {
+    var url;
+    var type;
+    url = location.search;
+    console.log(url);
+    type = parseInt(url.substr(6));
+    console.log(type);
+    console.log(typeof (type));
     $('#navbar .nav ul li').mouseover(function () {
         var con = $(this).index();
         console.log(con);
@@ -203,11 +210,42 @@ function navbar() {
             left: 76 * con + 'px'
         });
     });
-
-    $('#navbar .nav ul li').mouseleave(function () {
+   
+    if (type == 2) {
+        $('.bottom-nav').css({
+            left: '152px'
+        });
+    } else if (type == 4) {
+        $('.bottom-nav').css({
+            left: '304px'
+        });
+    } else if (type == 3) {
+        $('.bottom-nav').css({
+            left: '456px'
+        });
+    } else {
         $('.bottom-nav').css({
             left: '0px'
         });
+    }
+    $('#navbar .nav ul li').mouseleave(function () {
+        if (type == 2) {
+            $('.bottom-nav').css({
+                left: '152px'
+            });
+        } else if (type == 4) {
+            $('.bottom-nav').css({
+                left: '304px'
+            });
+        } else if (type == 3) {
+            $('.bottom-nav').css({
+                left: '456px'
+            });
+        } else {
+            $('.bottom-nav').css({
+                left: '0px'
+            });
+        }
     });
     $('.imgul-tx').hover(function () {
         console.log(111);
@@ -255,7 +293,7 @@ function registerbtn() {
         closelogin();
         FormValidation();
         verif();
-    }
+}
     //登陆按钮点击效果
     function loginbtn() {
         $mask.css("display", "block");//遮罩显示

@@ -8,12 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-@*   <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HomePage.css" scoped />*@
+   <link type="text/css" rel="stylesheet" href="~/Content/MyCss/HomePageInfo.css" />
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/MyScript/HomePageInfo.js"></script>
 </head>
-<section>
-    <h2 id="HealTitle">HomepageInfo</h2>
-    <div id="HealContent">内容</div>
-    <div><span id="sdtime"></span></div>
-</section>
+<body>
+    <section>
+        <div class="listleft">
+            <h2 id="HealTitle"></h2>
+            <div class="time"><span id="sdtime"></span><span id="count"></span></div>
+            <div id="HealContent"></div>
+            
+        </div>
+        <div class="listright">
+            <div class="Noall"><img src="~/Img/Noall.png" /><span>热门点击排行榜</span></div>
+            <ul id="rightul">
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No1.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No2.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><img src="~/Img/No3.png" /></div><span class="Notop healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">4</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">5</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">6</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">7</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">8</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">9</div></div><span class="healrig_title"></span></a></li>
+                <li><a href="#"><div class="Noimg"><div class="Nonum">10</div></div><span class="healrig_title"></span></a></li>
+            </ul>
+        </div>
+    </section>
+</body>

@@ -301,3 +301,6 @@
     top: 0;
     left: 600px;
 }
+#question_title{
+    outline:none;
+}

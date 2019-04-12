@@ -102,6 +102,21 @@ namespace MyHabits.DataAccess
             var MyUserPsd = DbHelper.Query<UserEntity>(sql, p);
             return MyUserPsd;
         }
+
+        
+
+        public List<UserEntity> GetPersonalList(out int total, int page, int limit)
+        {
+            string sql = "select * from userinfo ";
+            var PersonalList = DbHelper.Query<UserEntity>(sql);
+            total = PersonalList.Count;
+
+            return PersonalList.Skip((page - 1) * limit).Take(limit).ToList();
+        }
+
+
+
+
     }
 }
 

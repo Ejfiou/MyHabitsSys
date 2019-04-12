@@ -57,6 +57,23 @@ namespace MyHabits.MvcWeb.Controllers
            List<PublishHeal> listpub =   bll.GetHealthInfo(pub);
             return Json(new AjaxResult() { success = true, data = listpub});
         }
+        
+        //草稿箱数据
+        public JsonResult GetHealthInfo2()
+        {
+            PublishHeal pub = new PublishHeal();
+            List<PublishHeal> listpub = bll.GetHealthInfo2(pub);
+            return Json(new AjaxResult() { success = true, data = listpub });
+        }
+        
+        public JsonResult UpdateHealthInfo2(PublishHeal heal)
+                {
+            if (heal.ID != null)
+            {
+                bll.UpdateHealthInfo2(heal);
+            }
+            return Json(new AjaxResult() { success = true, msg = "上传成功" });
+        }
         //带回当前id号并通过id搜索对应资讯详情
         /// <param name="healthinfo"></param>
         public JsonResult SetHealthInfo(PublishHeal healthinfo)
@@ -74,5 +91,17 @@ namespace MyHabits.MvcWeb.Controllers
                 return Json(new AjaxResult() { success = false, msg = "传送失败" });
             }
         }
+
+        public JsonResult GetHealRotation()
+        {
+            PublishHeal pub = new PublishHeal();
+            List<PublishHeal> listpub = bll.GetHealRotation(pub);
+            return Json(new AjaxResult() { success = true, data = listpub });
+        }
+
+
+
+
+
     }
 }

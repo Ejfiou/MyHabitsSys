@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DalAccount.cs" />
+    <Compile Include="DalAnswerinfo.cs" />
     <Compile Include="DalPublishHealth.cs" />
     <Compile Include="DalQuestion.cs" />
     <Compile Include="DbHelper.cs" />

@@ -3,6 +3,30 @@
     //leftText();
 });
 function doLoad() {
+    gethealinfo();
+    Notop();
+};
+
+function Notop() {
+    var rightul = $("#rightul");
+    var rightli = rightul.children("li");
+    $.post('/HealList/GetHealNotop', {
+    }, function (res) {
+        if (res.success) {
+            console.log(res);
+            console.log("成功");
+            console.log(rightli.length);
+            for (var i = 0; i < rightli.length; i++) {
+                $(rightli[i]).find(".healrig_title").text(res.data[i].heal_title);
+                $(rightli[i]).find("a").attr("href", "/HomepageInfo/HomepageInfo?id=" + res.data[i].ID);
+            }
+        } else {
+            console.log("失败");
+        }
+    });
+}
+
+function gethealinfo() {
     console.log("进来了");
     var url = location.search;
     console.log(url);
@@ -20,18 +44,22 @@ function doLoad() {
             $("#HealContent").html(res.data[0].heal_content);
             var dt = res.data[0].heal_sdTime;
             var formatTime1 = convertTime(dt, "yyyy年MM月dd日 hh:mm ss秒");//2019年03月16日 20:46 47秒
-            console.log(formatTime1.substr(0,17));
+            console.log(formatTime1.substr(0, 17));
             var sdtiome = formatTime1.substr(0, 17);//发布时间
             $("#HealContent").find("p").attr("contenteditable", false);
-        }   
+            $("#HealContent").find("div").attr("contenteditable", false);
+            $("#sdtime").text("发布时间：" + sdtiome); 
+            $("#count").text("阅读次数：" + res.data[0].heal_count);
+        }
         else {
-           
+
             alert(res.msg);
         }
     });
 
     return false;
 };
+
 
 
 
