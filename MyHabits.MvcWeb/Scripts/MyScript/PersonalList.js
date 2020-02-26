@@ -55,8 +55,17 @@ function getPersonallist() {
             } else {
                 userStatus = 0;
             }
+            var ID = this.value;
             console.log(userStatus);
-
+            $.post('/PersonalList/UpdateStatus', {
+                ID: ID,
+                userStatus: userStatus,
+            }, function (res) {
+                console.log(res);
+                if (res.success) {
+                    alert("权限更改成功");
+                }
+            });
         });
     });
 }

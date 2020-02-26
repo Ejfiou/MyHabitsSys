@@ -17,6 +17,11 @@ namespace MyHabits.Business
             return dal.SetAnswerinfo(answer);
         }
 
+        public bool GetAnswerinfo(Answerinfo answer)
+        {
+            return dal.GetAnswerinfo(answer);
+        }
+
 
         public List<Answerinfo> MyAnswerinfo(Answerinfo answer)
         {

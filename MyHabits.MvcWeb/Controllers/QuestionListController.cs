@@ -42,7 +42,7 @@ namespace MyHabits.MvcWeb.Controllers
             List<Question> listpub = bll.GetAllQuesInfo(pub1);
             if (listpub.Count > 0)
             {
-                return Json(new AjaxResult() { success = true, msg = "取值成功", data = listpub });
+                return Json(new AjaxResult() { success = true, msg = "成功", data = listpub });
             }
             else
             {

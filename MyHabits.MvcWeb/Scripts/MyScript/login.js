@@ -1,4 +1,7 @@
 ﻿$(function () {
+    var mycolor = sessionStorage.getItem('color');
+    console.log(mycolor);
+    document.body.style.setProperty('--main-color', mycolor);
     clearinp();
     color();
     navbar();
@@ -320,7 +323,6 @@ function registerbtn() {
 function FormValidation() {
     var $Inp = $(".registerpage input");
     var code = $("#VerificationCode");
-    //console.log(Inp);
     for (var i = 0; i < $Inp.length-1; i++) {
         $Inp[i].onfocus = function () {
             console.log($("#password1").nextAll("span:first").text());
@@ -409,16 +411,29 @@ function btnRegistshow() {
 }
 //主体颜色换肤
 function color() {
-    $("#red").click(function () {
+    sessionStorage.setItem('key', 'value');
+
+    // 从sessionStorage获取数据
+    
+    var color;
+    $("#red").click(function (color) {
         console.log(111);
+        color = '#ca0c16';
+        sessionStorage.setItem('color', color);
         document.body.style.setProperty('--main-color', '#ca0c16');
     });
-    $("#green").click(function () {
+    $("#green").click(function (color) {
+        color = '#1AAD19';
+        sessionStorage.setItem('color', color);
         document.body.style.setProperty('--main-color', '#1AAD19');
     });
-    $("#blue").click(function () {
+    $("#blue").click(function (color) {
+        color = '#2672ff';
+        sessionStorage.setItem('color', color);
         document.body.style.setProperty('--main-color', '#2672ff');
     });
+    console.log(color);
+   
 }
 
 

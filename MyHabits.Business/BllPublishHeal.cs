@@ -44,7 +44,11 @@ namespace MyHabits.Business
         {
             return dal.GetHealNotop(healno);
         }
-
+        
+        public List<PublishHeal> GetHealTip(string heal)
+        {
+            return dal.GetHealTip(heal);
+        }
 
         public List<PublishHeal> GetHealRotation(PublishHeal query)
         {

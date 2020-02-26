@@ -64,6 +64,18 @@ namespace MyHabits.DataAccess
         {
             return DbHelper.Update(user);
         }
+        public bool UpdateStatus(UserEntity user)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userStatus", user.userStatus);
+            p.Add("@ID", user.ID);
+            string sql = "update userinfo set userStatus =@userStatus where ID = @ID";
+
+
+            var userFstatus = DbHelper.Execute(sql, p);
+
+            return userFstatus > 0;
+        }
         public List<UserEntity> GetMyuserInfo(UserEntity user)
         {
             string sql = "select * from userinfo where  1=1";

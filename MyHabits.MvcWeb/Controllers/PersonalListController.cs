@@ -42,5 +42,22 @@ namespace MyHabits.MvcWeb.Controllers
             List<UserEntity> listpub = bll.GetPersonalList( out int total, page, limit);
             return Json(new AjaxResult() { success = true, data = listpub, count = total });
         }
+
+        public JsonResult UpdateStatus(UserEntity user)
+        {
+
+            if (Session["UserInfo"] != null)
+            {
+                UserEntity u = (Session["UserInfo"] as UserEntity);
+
+                if (u != null)
+                {
+                    u.userStatus = user.userStatus;
+                    bll.UpdateStatus(user);
+                }
+                Session["UserInfo"] = u;
+            }
+            return Json(new AjaxResult() { success = true, msg = "上传成功" });
+        }
     }
 }

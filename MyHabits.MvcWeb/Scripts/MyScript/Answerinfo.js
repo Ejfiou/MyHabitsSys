@@ -43,7 +43,7 @@ function Getquestioninfo() {
             for (var i = 0; i < question_centent.length; i++) {
                 var $question_centent = $(
                     '<div class="question_centent ">\n' +
-                    '<div class="Q_title"><span class="q_seq">1</span><span class="q_title">标题</span></div>\n' +
+                    '<div class="Q_title"><span class="q_seq">1</span><span class="q_title"></span></div>\n' +
                     '<div class="echartbtn">\n' +
                     '<div class="tabtn Piechart">饼状图</div> <div class="tabtn Histogram">柱状图</div> <div class="tabtn Circularchart">圆环图</div><br/>\n' +
                     '</div >\n' +
@@ -97,6 +97,46 @@ function Getquestioninfo() {
                     $(".question_centent:last").find(".echartbtn").remove();
                     $(".question_centent:last").find(".echartmain").remove();
                     $(".question_centent:last").append($question_option);
+                } else if (question_centent[i].type == 4) {
+                    var $Recommend = '<div class="Recommend"><h2 class="Rec_titele"> 推荐阅读</h2 ></div >';
+                    $("#footend").append($Recommend);
+                    $($(".question_centent")[i]).remove();
+                    console.log(question_centent[i].title);
+                    console.log(question_centent[i].option);
+                    var separator = "&";
+                    if (question_centent[i].title != "") {
+                        separator = question_centent[i].title;
+                    }
+                    var str = question_centent[i].option.replace(/\s/g, "");;
+                    var tip = str.split(separator);
+                    console.log(tip);
+                    $.post('/HealList/GetHealTip', {
+                        tip: tip,
+                    }, function (res) {
+                        if (res.success) {
+                            console.log(res);
+                            var data = res.data;
+                            console.log("成功");
+                            for (i = 0; i < data.length; i++) {
+                                var $Rec_centent = '<a href="#" class="tipjump"><div class="Rec_centent">\n' +
+                                    '<h4 class="Rec_Article_title"></h4>\n' +
+                                    '<div class="Rec_Article_other">\n' +
+                                    '阅读量：<span class="count"></span>\n' +
+                                    '<div class="time"></div>\n' +
+                                    '</div></div ></a>';
+                                var dt = data[i].heal_sdTime;
+                                var formatTime1 = convertTime(dt, "yyyy年MM月dd日");//2019年03月16日 20:46 47秒
+                                $(".Recommend").append($Rec_centent);
+                                $($(".Rec_centent")[i]).find(".Rec_Article_title").text(data[i].heal_title);
+                                $($(".Rec_centent")[i]).find(".count").text(data[i].heal_count);
+                                $($(".Rec_centent")[i]).find(".time").text(formatTime1);
+                                $($(".tipjump")[i]).attr("href", "/HomepageInfo/HomepageInfo?id=" + data[i].ID);
+                            }
+                        } else {
+                            console.log("失败");
+
+                        }
+                    });
                 }
             }
             $('input').iCheck('disable');
@@ -662,3 +702,44 @@ function echart() {
 
 
 //console.log(chartdata);
+function mydatetime(formatTime1) {
+    var myDate = new Date();
+    var Year = myDate.getFullYear();
+    var month = myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+    var day = myDate.getDate();        //获取当前日(1-31)
+    var hours = myDate.getHours();       //获取当前小时数(0-23)
+    var min = myDate.getMinutes();     //获取当前分钟数(0-59)
+    console.log(formatTime1);
+    var mytime = formatTime1.split("/");
+    console.log(Year + '/' + month + '/' + day + '/' + hours + '/' + min + '/');
+
+}
+
+function convertTime(jsonTime, format) {
+    var date = new Date(parseInt(jsonTime.replace("/Date(", "").replace(")/", ""), 10));
+    var formatDate = date.format(format);
+    return formatDate;
+}
+Date.prototype.format = function (format) {
+    var date = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S+": this.getMilliseconds()
+    };
+
+    if (/(y+)/i.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+    }
+
+    for (var k in date) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+        }
+    }
+
+    return format;
+}

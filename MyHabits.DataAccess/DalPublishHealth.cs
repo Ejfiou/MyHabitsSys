@@ -77,7 +77,7 @@ namespace MyHabits.DataAccess
             
             return HealList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
-
+        
 
         public List<PublishHeal> GetHealNotop(PublishHeal healno)
         {
@@ -85,6 +85,16 @@ namespace MyHabits.DataAccess
 
             var healnotop = DbHelper.Query<PublishHeal>(sql);
             return healnotop;
+        }
+        public List<PublishHeal> GetHealTip(string heal)
+        {
+            string sql = $"select top (10) ID,heal_title,heal_count,heal_sdTime from healthinfo where heal_status =1 and  {heal} ORDER BY heal_count DESC,heal_sdTime DESC";
+
+            //DynamicParameters parameters = new DynamicParameters();
+            //parameters.Add("@title", heal);
+
+            var healtip = DbHelper.Query<PublishHeal>(sql);
+            return healtip;
         }
 
 

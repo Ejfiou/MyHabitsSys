@@ -3,7 +3,10 @@
     height: auto;
     background: #f3f5f6;
 }
-
+a {
+    color: #000;
+    text-decoration: none;
+}
 .Question_session {
     width: 70%;
     height: auto;
@@ -143,4 +146,41 @@
 .colfu {
     color: var(--main-color);
     font-weight: bold
+}
+#footend{
+    width:100%;
+    height:auto;
+    /*background:#ff0000;*/
+}
+.Rec_titele {
+    border-bottom: 3px solid var(--main-color);
+}
+.Rec_centent{
+    height:130px;
+    width:100%;
+    /*background:#ff6a00;*/
+    position:relative;
+    cursor:pointer;
+    border:1px solid #ffffff;
+    margin-top:10px;
+}
+    .Rec_centent:hover {
+        background: #f5f3f3;
+    }
+    .Rec_Article_title {
+        padding-top: 10px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+.Rec_Article_centent {
+    margin-top:10px;
+    height:50px;
+    font-size: 16px;
+    margin-left: 30px;
+    /*background:#fff;*/
+}
+.Rec_Article_other {
+    position: absolute;
+    right: 20px;
+    color: #999;
 }

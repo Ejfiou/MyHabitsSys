@@ -1,11 +1,29 @@
 ﻿$(function () {
-    
+    jump();
     doload();
 });
 function doload() {
     iCheck();
     Getquestioninfo();
     checknow();
+}
+function jump() {
+    var logID = $('#logID').val();//userID
+    var url = location.search;
+    var quesid = parseInt(url.substr(1));//QuesID
+    console.log(quesid);
+    $.post('/QuestionInfo/GetAnswerinfo', {
+        questionID: quesid,
+        userID: logID,
+    }, function (res) {
+        console.log(res);
+        if (res.success) {
+            console.log("成功");
+            window.location.href = "/Answerinfo/Answerinfo?quesid=" + quesid;
+        } else {
+            console.log("失败");
+        }
+    });
 }
 function iCheck() {
     $('input').iCheck({
@@ -169,14 +187,14 @@ function Getquestioninfo() {
                         idnum++;
                         $(".question_centent:last").append($question_option);
                         $(".question_centent:last").children(".q_centent_wrap:last").find("input").attr({ "id": "baz" + idnum, "name": "quux" + namenum, "value": j });
-                        
+
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").attr("for", "baz" + idnum);
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text(question_centent[i].option[j].valoption);
                         console.log($(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text());
-                        console.log(question_centent[i].option[j].valoption );
+                        console.log(question_centent[i].option[j].valoption);
                     }
                 } else if (question_centent[i].type == 2) {
-                    $($(".question_centent")[i]).addClass( "q_check");
+                    $($(".question_centent")[i]).addClass("q_check");
                     for (var j = 0; j < question_centent[i].option.length; j++) {
                         console.log("you");
                         $question_option = $(
@@ -191,16 +209,19 @@ function Getquestioninfo() {
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").attr("for", "baz" + idnum);
                         $(".question_centent:last").children(".q_centent_wrap:last").find(".option_title").text(question_centent[i].option[j].valoption);
                     }
-                } else if (question_centent[i].type == 3){
+                } else if (question_centent[i].type == 3) {
                     console.log(question_centent[i].title);
                     $($(".question_centent")[i]).addClass("q_textval");
-                        console.log("you");
-                        $question_option = $(
-                            '  <div class="q_centent_wrap">\n' +
-                            '<div class="Q_text" contenteditable="true"></div>\n' +
-                            '</div >');
-                        $(".question_centent:last").append($question_option);
-                        }
+                    console.log("you");
+                    $question_option = $(
+                        '  <div class="q_centent_wrap">\n' +
+                        '<div class="Q_text" contenteditable="true"></div>\n' +
+                        '</div >');
+                    $(".question_centent:last").append($question_option);
+                } else if (question_centent[i].type == 4) {
+                    $($(".question_centent")[i]).remove();
+                    console.log($(".question_centent")[i]);
+                }
             }
             iCheck();
         } else {

@@ -69,5 +69,21 @@ namespace MyHabits.MvcWeb.Controllers
             }
         }
 
+        public JsonResult GetAnswerinfo(Answerinfo answer)
+        {
+
+            Answerinfo pub1 = new Answerinfo();
+
+            bool flag = bllan.GetAnswerinfo(answer);
+            if (flag == true)
+            {
+                return Json(new AjaxResult() { success = true, msg = "传值成功" });
+            }
+            else
+            {
+                return Json(new AjaxResult() { success = false, msg = "传值失败" });
+            }
+        }
+
     }
 }

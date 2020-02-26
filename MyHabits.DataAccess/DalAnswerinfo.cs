@@ -17,7 +17,17 @@ namespace MyHabits.DataAccess
             var flag = DbHelper.Insert<Answerinfo>(answer);
             return flag > 0;
         }
-
+        public bool GetAnswerinfo(Answerinfo answer)
+        {
+            string sql = "select * from Answerinfo where  1=1";
+            var p = new DynamicParameters();
+            sql += " and questionID = @questionID ";
+            p.Add("@questionID", answer.questionID);
+            sql += " and userID = @userID ";
+            p.Add("@userID", answer.userID);
+            var flag = DbHelper.Query<Answerinfo>(sql, p);
+            return flag.Count> 0;
+        }
 
         public List<Answerinfo> MyAnswerinfo(Answerinfo answer)
         {

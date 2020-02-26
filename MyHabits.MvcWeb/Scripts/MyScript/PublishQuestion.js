@@ -420,7 +420,6 @@ function tipsbtn() {
 }
 
 function subbtn() {
-    console.log("提交啦");
     $("#subbtn").click(function () {
         var $question_centent = $(".question_centent");
         var question = [];
@@ -429,10 +428,8 @@ function subbtn() {
         var Q_option_value;
         var option;
         for (var i = 0; i < $question_centent.length; i++) {
-            console.log($($question_centent[i]).length);
             var len = [];
             if ($($question_centent[i]).hasClass("q_radio_val")) {
-                console.log("有radio哦");
                 type = 1;
                 Q_option_value = $($question_centent[i]).find(".Q_option_value");
                 console.log($($question_centent[i]).find(   ".Q_option_value"));
@@ -446,7 +443,6 @@ function subbtn() {
                 console.log("有check哦");
                 type = 2;
                  Q_option_value = $($question_centent[i]).find(".Q_option_value");
-                console.log($($question_centent[i]).find(".Q_option_value"));
                 for (var j = 0; j < Q_option_value.length; j++) {
                      option = {
                         valoption: $(Q_option_value[j]).text()
@@ -454,7 +450,6 @@ function subbtn() {
                     len.push(option);
                 }
             } else {
-                console.log("有文本框哦");
                 type = 3;
                 len = [];
             }
@@ -465,7 +460,6 @@ function subbtn() {
             } else {
                 title = $($question_centent[i]).find(".radio_title").text();
             }
-            console.log(title);
             var centent = {
                 title: title,
                 option: len,
@@ -476,9 +470,6 @@ function subbtn() {
         }
         var question_title = $("#question_title").text();
         var question_prefix = $(".prefix_content").text();
-        console.log(question);
-        console.log(question_title);
-        console.log(question_prefix);
         var question_centent1 = JSON.stringify(question);
         $.post('/PublishQuestion/SetQuesInfo', {
             question_title: question_title,

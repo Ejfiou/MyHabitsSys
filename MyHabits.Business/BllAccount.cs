@@ -30,6 +30,11 @@ namespace MyHabits.Business
             return dal.UpdatePwd(user);
         }
 
+        public bool UpdateStatus(UserEntity user)
+        {
+            return dal.UpdateStatus(user);
+        }
+
         public UserEntity GetUserById(int id)
         {
             return dal.GetUserById(id);

@@ -452,6 +452,7 @@
     <Content Include="layui\lay\modules\upload.js" />
     <Content Include="layui\lay\modules\util.js" />
     <Content Include="Scripts\echarts.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\MyScript\Answerinfo.js" />
     <Content Include="Scripts\bootstrap.js" />

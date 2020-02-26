@@ -84,7 +84,7 @@ namespace MyHabits.MvcWeb.Controllers
                 List<PublishHeal> listpub = bll.SetHealthInfo(healthinfo);
             if (listpub.Count > 0)
             {
-                return Json(new AjaxResult() { success = true, msg = "取值成功" ,data = listpub });
+                return Json(new AjaxResult() { success = true, msg = "取回成功" ,data = listpub });
             }
             else
             {

@@ -64,7 +64,10 @@ function getquestion() {
                 var formatTime1 = convertTime(dt, "MM月dd日 hh:mm");//2019年03月16日 20:46 47秒
                 //mydatetime(formatTime1);
                 lastli.find(".edit_time").text(formatTime1);
-                lastli.find("a").attr("href", "/QuestionInfo/QuestionInfo?" + res.data[i].questionID)
+                var logID = $('#logID').val();
+                console.log("这是ID" + logID);
+                console.log("这是问卷" + res.data[i].questionID);
+                lastli.find("a").attr("href", "/QuestionInfo/QuestionInfo?" + res.data[i].questionID);
             }
             userFstatus(res);
         } else {

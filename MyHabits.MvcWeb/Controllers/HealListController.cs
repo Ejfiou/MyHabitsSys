@@ -48,5 +48,35 @@ namespace MyHabits.MvcWeb.Controllers
             }
         }
 
+        public JsonResult GetHealTip(string[] tip)
+        {
+
+
+            string title = string.Empty;
+
+            for (int i = 0; i < tip.Length; i++)
+            {
+                if (i == 0)
+                {
+                    title += $" heal_title like '%{tip[i]}%' ";
+                }
+                else
+                {
+                    title += $" or heal_title like '%{tip[i]}%' ";
+                }
+
+            }
+
+            List<PublishHeal> listpub = bll.GetHealTip(title);
+            if (listpub.Count > 0)
+            {
+                return Json(new AjaxResult() { success = true, msg = "取值成功", data = listpub });
+            }
+            else
+            {
+                return Json(new AjaxResult() { success = false, msg = "传送失败" });
+            }
+        }
+
     }
 }
